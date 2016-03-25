@@ -1,0 +1,7 @@
+.cache/
+.history/
+.lib/
+dist/*
+target/
+.log
+.git
