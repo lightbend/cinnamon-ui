@@ -87,7 +87,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "HEAP",
+          "title": "Heap",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -152,7 +152,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "NON HEAP",
+          "title": "Non Heap",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -217,7 +217,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "TOTAL HEAP",
+          "title": "Total Heap",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -290,7 +290,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "MEMORY POOLS",
+          "title": "Memory Pools",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -647,7 +647,38 @@
             "text": "All",
             "value": "*",
             "selected": true
-          }        ],
+          },
+          {
+            "text": "Code-Cache",
+            "value": "Code-Cache",
+            "selected": false
+          },
+          {
+            "text": "Compressed-Class-Space",
+            "value": "Compressed-Class-Space",
+            "selected": false
+          },
+          {
+            "text": "Metaspace",
+            "value": "Metaspace",
+            "selected": false
+          },
+          {
+            "text": "PS-Eden-Space",
+            "value": "PS-Eden-Space",
+            "selected": false
+          },
+          {
+            "text": "PS-Old-Gen",
+            "value": "PS-Old-Gen",
+            "selected": false
+          },
+          {
+            "text": "PS-Survivor-Space",
+            "value": "PS-Survivor-Space",
+            "selected": false
+          }
+        ],
         "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.pools.*",
         "refresh": true,
         "refresh_on_load": false,
@@ -661,6 +692,6 @@
   },
   "refresh": false,
   "schemaVersion": 8,
-  "version": 4,
+  "version": 3,
   "links": []
 }

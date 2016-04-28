@@ -6,7 +6,7 @@
   "style": "dark",
   "timezone": "browser",
   "editable": true,
-  "hideControls": false,
+  "hideControls": true,
   "sharedCrosshair": false,
   "rows": [
     {
@@ -56,6 +56,7 @@
           },
           "id": 13,
           "isNew": true,
+          "leftYAxisLabel": "events/second",
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -81,13 +82,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.$Actors.actor-failures, 3, 7)"
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.actor-failures.$Rate, 3, 5, 9, 11, 13, 15)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Actor Failure Events",
+          "title": "Actor Failure Events : $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -96,7 +98,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -121,6 +123,7 @@
           },
           "id": 15,
           "isNew": true,
+          "leftYAxisLabel": "events/second",
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -146,13 +149,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.$Actors.dead-letters, 3, 7)"
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.dead-letters.$Rate, 3, 5, 9, 11, 13, 15)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Actor Dead Letter Events",
+          "title": "Actor Dead Letter Events : $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -161,7 +165,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -186,6 +190,7 @@
           },
           "id": 16,
           "isNew": true,
+          "leftYAxisLabel": "events/second",
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -211,13 +216,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.$Actors.unhandled-messages, 3, 7)"
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.unhandled-messages.$Rate, 3, 5, 9, 11, 13, 15)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Actor Unhandled Message Events",
+          "title": "Actor Unhandled Message Events : $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -226,7 +232,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -251,6 +257,7 @@
           },
           "id": 17,
           "isNew": true,
+          "leftYAxisLabel": "events/second",
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -276,13 +283,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.$Actors.log-errors, 3, 7)"
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.log-errors.$Rate, 3, 5, 9, 11, 13, 15)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Actor Log Error Events",
+          "title": "Actor Log Error Events : $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -291,7 +299,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -316,6 +324,7 @@
           },
           "id": 18,
           "isNew": true,
+          "leftYAxisLabel": "events/second",
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -341,13 +350,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.$Actors.log-warnings, 3, 7)"
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.log-warnings.$Rate, 3, 5, 9, 11, 13, 15)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Actor Log Warning Events",
+          "title": "Actor Log Warning Events: $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -356,9 +366,31 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "25px",
+      "panels": [
+        {
+          "content": "THRESHOLD BREACHES",
+          "editable": true,
+          "error": false,
+          "id": 22,
+          "isNew": true,
+          "links": [],
+          "mode": "markdown",
+          "span": 12,
+          "style": {},
+          "title": "",
+          "transparent": true,
+          "type": "text"
         }
       ],
       "title": "New row"
@@ -389,6 +421,7 @@
           },
           "id": 14,
           "isNew": true,
+          "leftYAxisLabel": "breaches/second",
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -415,12 +448,13 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.$Actors.mailbox-size-limit, 3, 7)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.mailbox-size-limit.$Rate, 3, 5, 9, 11, 13, 15)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Mailbox Size Limit Thresholds",
+          "title": "Mailbox Size Limit Thresholds: $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -429,7 +463,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -454,6 +488,7 @@
           },
           "id": 19,
           "isNew": true,
+          "leftYAxisLabel": "breaches/second",
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -479,13 +514,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.$Actors.mailbox-time-limit, 3, 7)"
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.mailbox-time-limit.$Rate, 3, 5, 9, 11, 13, 15)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Mailbox Time Limit Thresholds",
+          "title": "Mailbox Time Limit Thresholds: $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -494,7 +530,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -519,6 +555,7 @@
           },
           "id": 20,
           "isNew": true,
+          "leftYAxisLabel": "breaches/second",
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -544,13 +581,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.$Actors.processing-time-limit, 3, 7)"
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.processing-time-limit.$Rate, 3, 5, 9, 11, 13, 15)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Processing Time Limit Thresholds",
+          "title": "Processing Time Limit Thresholds: $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -559,7 +597,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -584,6 +622,7 @@
           },
           "id": 21,
           "isNew": true,
+          "leftYAxisLabel": "breaches/second",
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -609,13 +648,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.$Actors.stash-size-limit, 3, 7)"
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.stash-size-limit.$Rate, 3, 5, 9, 11, 13, 15)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Stash Size Limit Thresholds",
+          "title": "Stash Size Limit Thresholds: $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -624,7 +664,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         }
@@ -722,6 +762,58 @@
         "includeAll": true,
         "multi": true,
         "multiFormat": "glob",
+        "name": "ActorSystems",
+        "options": [
+          {
+            "text": "All",
+            "value": "*",
+            "selected": true
+          }
+        ],
+        "query": "*.gauges.servers.*.apps.*.events.akka.systems.*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "",
+        "tags": [],
+        "type": "query",
+        "useTags": true
+      },
+      {
+        "allFormat": "wildcard",
+        "current": {
+          "text": "All",
+          "value": "*"
+        },
+        "datasource": null,
+        "includeAll": true,
+        "multi": true,
+        "multiFormat": "glob",
+        "name": "Dispatchers",
+        "options": [
+          {
+            "text": "All",
+            "value": "*",
+            "selected": true
+          }
+        ],
+        "query": "*.gauges.servers.*.apps.*.events.akka.systems.*.dispatchers.*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "",
+        "tags": [],
+        "type": "query",
+        "useTags": true
+      },
+      {
+        "allFormat": "wildcard",
+        "current": {
+          "text": "All",
+          "value": "*"
+        },
+        "datasource": null,
+        "includeAll": true,
+        "multi": true,
+        "multiFormat": "glob",
         "name": "Actors",
         "options": [
           {
@@ -730,12 +822,60 @@
             "selected": true
           }
         ],
-        "query": "*.gauges.servers.*.apps.*.metrics.*",
+        "query": "*.gauges.servers.*.apps.*.events.akka.systems.*.dispatchers.*.actors.*",
         "refresh": true,
         "refresh_on_load": false,
         "regex": "",
         "tags": [],
         "type": "query",
+        "useTags": true
+      },
+      {
+        "allFormat": "wildcard",
+        "current": {
+          "text": "All",
+          "value": "*"
+        },
+        "datasource": null,
+        "includeAll": true,
+        "multi": false,
+        "multiFormat": "glob",
+        "name": "Rate",
+        "options": [
+          {
+            "text": "All",
+            "value": "*",
+            "selected": true
+          },
+          {
+            "text": "mean_rate",
+            "value": "mean_rate",
+            "selected": false
+          },
+          {
+            "text": "min1_rate",
+            "value": "min1_rate",
+            "selected": false
+          },
+          {
+            "text": "min5_rate",
+            "value": "min5_rate",
+            "selected": false
+          },
+          {
+            "text": "min15_rate",
+            "value": "min15_rate",
+            "selected": false
+          }
+        ],
+        "query": "mean_rate, min1_rate, min5_rate, min15_rate",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "",
+        "tagValuesQuery": "mean_rate",
+        "tags": [],
+        "tagsQuery": "mean_rate",
+        "type": "custom",
         "useTags": true
       }
     ]
@@ -745,6 +885,6 @@
   },
   "refresh": false,
   "schemaVersion": 8,
-  "version": 1,
+  "version": 5,
   "links": []
 }

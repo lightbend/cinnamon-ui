@@ -62,7 +62,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.*.state, 3, 5, 7)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.state, 3, 5, 7)",
               "textEditor": false
             }
           ],
@@ -99,6 +99,7 @@
           },
           "id": 4,
           "isNew": true,
+          "leftYAxisLabel": "ops/second",
           "legend": {
             "avg": false,
             "current": false,
@@ -117,19 +118,20 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 4,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
+              "hide": false,
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.*.throughput-failure.mean_rate, 3, 5, 7)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.throughput.$Rate, 3, 5, 7, 9)",
               "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Throughput: Mean Rate",
+          "title": "Throughput",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -138,71 +140,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
-            "short"
-          ]
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": null,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 5,
-          "isNew": true,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 4,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.*.throughput-failure.min15_rate, 3, 5, 7)",
-              "textEditor": false
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Throughput: 15 Minutes Rate",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -227,6 +165,7 @@
           },
           "id": 6,
           "isNew": true,
+          "leftYAxisLabel": "ops/second",
           "legend": {
             "avg": false,
             "current": false,
@@ -245,19 +184,20 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 4,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
+              "hide": false,
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.*.throughput-failure.min1_rate, 3, 5, 7)",
-              "textEditor": false
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.throughput-failure.$Rate, 3, 5, 7, 9)",
+              "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Throughput: 1 Minute Rate",
+          "title": "Throughput Failure",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -266,7 +206,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         }
@@ -323,7 +263,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.*.latency.$MetricValue, 3, 5, 7, 9)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.latency.$MetricValue, 3, 5, 7, 9)",
               "textEditor": true
             }
           ],
@@ -395,7 +335,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.*.success-counter, 3, 5, 7)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.success-counter.$Rate, 3, 5, 7, 9)",
               "textEditor": true
             }
           ],
@@ -459,7 +399,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.*.failure-counter, 3, 5, 7)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.failure-counter.$Rate, 3, 5, 7, 9)",
               "textEditor": true
             }
           ],
@@ -517,7 +457,6 @@
       {
         "allFormat": "wildcard",
         "current": {
-          "tags": [],
           "text": "All",
           "value": "*"
         },
@@ -528,9 +467,9 @@
         "name": "Servers",
         "options": [
           {
-            "selected": true,
             "text": "All",
-            "value": "*"
+            "value": "*",
+            "selected": true
           }
         ],
         "query": "stats.gauges.servers.*",
@@ -541,7 +480,6 @@
       {
         "allFormat": "wildcard",
         "current": {
-          "tags": [],
           "text": "All",
           "value": "*"
         },
@@ -552,9 +490,9 @@
         "name": "Apps",
         "options": [
           {
-            "selected": true,
             "text": "All",
-            "value": "*"
+            "value": "*",
+            "selected": true
           }
         ],
         "query": "stats.gauges.servers.*.apps.*",
@@ -563,11 +501,33 @@
         "type": "query"
       },
       {
+        "allFormat": "wildcard",
+        "current": {
+          "text": "All",
+          "value": "*"
+        },
+        "datasource": null,
+        "includeAll": true,
+        "multi": true,
+        "multiFormat": "glob",
+        "name": "CircuitBreakers",
+        "options": [
+          {
+            "text": "All",
+            "value": "*",
+            "selected": true
+          }
+        ],
+        "query": "stats.gauges.servers.*.apps.*.circuit-breaker.*",
+        "refresh": true,
+        "regex": "",
+        "type": "query"
+      },
+      {
         "allFormat": "glob",
         "current": {
-          "tags": [],
-          "text": "max",
-          "value": "max"
+          "text": "All",
+          "value": "{max,mean,median,min,p75,p95,p98,p99,p999,stddev}"
         },
         "datasource": null,
         "includeAll": true,
@@ -576,65 +536,108 @@
         "name": "MetricValue",
         "options": [
           {
-            "selected": false,
             "text": "All",
-            "value": "{max,mean,median,min,p75,p95,p98,p99,p999,stddev}"
+            "value": "{max,mean,median,min,p75,p95,p98,p99,p999,stddev}",
+            "selected": true
           },
           {
-            "selected": true,
             "text": "max",
-            "value": "max"
+            "value": "max",
+            "selected": false
           },
           {
-            "selected": false,
             "text": "mean",
-            "value": "mean"
+            "value": "mean",
+            "selected": false
           },
           {
-            "selected": false,
             "text": "median",
-            "value": "median"
+            "value": "median",
+            "selected": false
           },
           {
-            "selected": false,
             "text": "min",
-            "value": "min"
+            "value": "min",
+            "selected": false
           },
           {
-            "selected": false,
             "text": "p75",
-            "value": "p75"
+            "value": "p75",
+            "selected": false
           },
           {
-            "selected": false,
             "text": "p95",
-            "value": "p95"
+            "value": "p95",
+            "selected": false
           },
           {
-            "selected": false,
             "text": "p98",
-            "value": "p98"
+            "value": "p98",
+            "selected": false
           },
           {
-            "selected": false,
             "text": "p99",
-            "value": "p99"
+            "value": "p99",
+            "selected": false
           },
           {
-            "selected": false,
             "text": "p999",
-            "value": "p999"
+            "value": "p999",
+            "selected": false
           },
           {
-            "selected": false,
             "text": "stddev",
-            "value": "stddev"
+            "value": "stddev",
+            "selected": false
           }
         ],
         "query": "stats.gauges.servers.*.apps.*.circuit-breaker.*.latency.*",
         "refresh": true,
         "regex": "",
         "type": "query"
+      },
+      {
+        "allFormat": "wildcard",
+        "current": {
+          "tags": [],
+          "text": "min1_rate",
+          "value": "min1_rate"
+        },
+        "datasource": null,
+        "includeAll": true,
+        "multi": false,
+        "multiFormat": "glob",
+        "name": "Rate",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "*"
+          },
+          {
+            "selected": false,
+            "text": "mean_rate",
+            "value": "mean_rate"
+          },
+          {
+            "selected": true,
+            "text": "min1_rate",
+            "value": "min1_rate"
+          },
+          {
+            "selected": false,
+            "text": "min5_rate",
+            "value": "min5_rate"
+          },
+          {
+            "selected": false,
+            "text": "min15_rate",
+            "value": "min15_rate"
+          }
+        ],
+        "query": "mean_rate, min1_rate, min5_rate, min15_rate",
+        "refresh": false,
+        "type": "custom"
       }
     ]
   },
@@ -643,6 +646,6 @@
   },
   "refresh": false,
   "schemaVersion": 8,
-  "version": 1,
+  "version": 6,
   "links": []
 }
