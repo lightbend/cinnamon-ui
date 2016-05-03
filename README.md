@@ -12,4 +12,4 @@ There are currently five available Grafana dashboards:
 * Cinnamon-JVMs-Dashboard.json
 * Lagom-Circuit-Breaker-Dashboard.json
 
-For more information on how to install and use these dashboards please visit the [monitoring documentation](https://resources.typesafe.com/monitoring/docs/).
+For more information on how to install and use these dashboards please visit the [monitoring documentation](http://monitoring.lightbend.com/docs/latest/).
