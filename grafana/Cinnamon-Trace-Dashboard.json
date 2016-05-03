@@ -1,5 +1,5 @@
 {
-  "id": 5,
+  "id": 4,
   "title": "Cinnamon Traces",
   "originalTitle": "Cinnamon Traces",
   "tags": [],
@@ -56,12 +56,13 @@
           },
           "id": 13,
           "isNew": true,
+          "leftYAxisLabel": "traces/second",
           "legend": {
             "avg": false,
             "current": false,
             "max": false,
             "min": false,
-            "show": true,
+            "show": false,
             "total": false,
             "values": false
           },
@@ -80,12 +81,12 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.*.traces.$TraceIdentifiers.trace-per-second.mean_rate, 3)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.traces.$TraceIdentifiers.trace-per-second.mean_rate, 3, 5, 7)"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Traces Per Second : Mean Rate",
+          "title": "Traces: Mean Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -94,7 +95,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -119,12 +120,13 @@
           },
           "id": 14,
           "isNew": true,
+          "leftYAxisLabel": "traces/second",
           "legend": {
             "avg": false,
             "current": false,
             "max": false,
             "min": false,
-            "show": true,
+            "show": false,
             "total": false,
             "values": false
           },
@@ -143,12 +145,12 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.*.traces.$TraceIdentifiers.trace-per-second.min15_rate, 3)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.traces.$TraceIdentifiers.trace-per-second.min15_rate, 3, 5, 7)"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Traces Per Second : 15 Minutes Rate",
+          "title": "Traces: 15 Minutes Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -157,7 +159,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         },
@@ -182,12 +184,13 @@
           },
           "id": 15,
           "isNew": true,
+          "leftYAxisLabel": "traces/second",
           "legend": {
             "avg": false,
             "current": false,
             "max": false,
             "min": false,
-            "show": true,
+            "show": false,
             "total": false,
             "values": false
           },
@@ -206,12 +209,12 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.*.traces.$TraceIdentifiers.trace-per-second.min1_rate, 3)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.traces.$TraceIdentifiers.trace-per-second.min1_rate, 3, 5, 7)"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Traces Per Second : 1 Minute Rate",
+          "title": "Traces: 1 Minute Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -220,7 +223,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         }
@@ -253,14 +256,15 @@
           },
           "id": 16,
           "isNew": true,
+          "leftYAxisLabel": "breaches/second",
           "legend": {
-            "alignAsTable": true,
+            "alignAsTable": false,
             "avg": false,
             "current": false,
             "max": false,
             "min": false,
-            "rightSide": true,
-            "show": true,
+            "rightSide": false,
+            "show": false,
             "total": false,
             "values": false
           },
@@ -279,7 +283,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.BottleneckSample.traces.$TraceIdentifiers.trace-threshold-breaches, 3)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.traces.$TraceIdentifiers.trace-threshold-breaches, 3, 5, 7)s"
             }
           ],
           "timeFrom": null,
@@ -293,7 +297,7 @@
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
-            "short",
+            "ops",
             "short"
           ]
         }
@@ -391,7 +395,6 @@
       {
         "allFormat": "wildcard",
         "current": {
-          "tags": [],
           "text": "All",
           "value": "*"
         },
@@ -402,12 +405,13 @@
         "name": "TraceIdentifiers",
         "options": [
           {
-            "selected": true,
             "text": "All",
-            "value": "*"
+            "value": "*",
+            "selected": true
           }
         ],
         "query": "*.gauges.servers.*.apps.*.traces.*",
+        "refresh": true,
         "refresh_on_load": false,
         "regex": "",
         "tags": [],
@@ -420,6 +424,6 @@
     "list": []
   },
   "schemaVersion": 8,
-  "version": 3,
+  "version": 4,
   "links": []
 }
