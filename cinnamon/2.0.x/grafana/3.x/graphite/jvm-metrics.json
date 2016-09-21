@@ -1,7 +1,7 @@
 {
-  "id": 1,
-  "title": "Cinnamon Actors",
-  "originalTitle": "Cinnamon Actors",
+  "id": 4,
+  "title": "JVM Metrics",
+  "originalTitle": "JVM Metrics",
   "tags": [],
   "style": "dark",
   "timezone": "browser",
@@ -15,7 +15,7 @@
       "height": "25px",
       "panels": [
         {
-          "content": "#ACTOR STATS",
+          "content": "# JVM Metrics",
           "editable": true,
           "error": false,
           "id": 9,
@@ -43,12 +43,6 @@
           "error": false,
           "fill": 1,
           "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
             "threshold1": null,
             "threshold1Color": "rgba(216, 200, 27, 0.27)",
             "threshold2": null,
@@ -56,74 +50,12 @@
           },
           "id": 7,
           "legend": {
+            "alignAsTable": true,
             "avg": false,
             "current": false,
             "max": false,
             "min": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "refId": "B",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.mailbox-size.$MetricValue, 3, 5, 9, 11, 13, 15)",
-              "textEditor": true
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Mailbox Size",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ]
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": null,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 11,
-          "leftYAxisLabel": "messages/second",
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
+            "rightSide": true,
             "show": false,
             "total": false,
             "values": false
@@ -143,23 +75,183 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.processed-messages.min1_rate, 3, 5, 9, 11, 13)",
-              "textEditor": true
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.*.jvm.memory-usage.heap.$HeapType, 3, 5, 10)",
+              "textEditor": false
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Processed Messages : 1 Minute Rate",
+          "title": "Heap",
           "tooltip": {
+            "msResolution": false,
             "shared": true,
             "value_type": "cumulative"
           },
           "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "ops",
-            "short"
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 10,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.*.jvm.memory-usage.non-heap.$HeapType, 3, 5, 10)",
+              "textEditor": false
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Non Heap",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 11,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.*.jvm.memory-usage.total.$HeapType, 3, 5, 10)",
+              "textEditor": false
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total Heap",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
           ]
         }
       ],
@@ -178,146 +270,6 @@
           "error": false,
           "fill": 1,
           "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 1,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.mailbox-time.$MetricValue, 3, 5, 9, 11, 13, 15)",
-              "textEditor": true
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Mailbox Time",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "ns",
-            "short"
-          ]
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": null,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 10,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.processing-time.$MetricValue, 3, 5, 9, 11, 13, 15)",
-              "textEditor": true
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Processing Time",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "ns",
-            "short"
-          ]
-        }
-      ],
-      "title": "New row"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": null,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
             "threshold1": null,
             "threshold1Color": "rgba(216, 200, 27, 0.27)",
             "threshold2": null,
@@ -325,10 +277,12 @@
           },
           "id": 12,
           "legend": {
+            "alignAsTable": true,
             "avg": false,
             "current": false,
             "max": false,
             "min": false,
+            "rightSide": true,
             "show": false,
             "total": false,
             "values": false
@@ -336,98 +290,50 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 12,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "refId": "B",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.stash-size.$MetricValue, 3, 5, 9, 11, 13, 15)",
-              "textEditor": true
+              "refId": "A",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.*.jvm.memory-usage.pools.$MemoryPools.usage, 3, 5, 10)",
+              "textEditor": false
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Stash Size",
+          "title": "Memory Pools",
           "tooltip": {
+            "msResolution": false,
             "shared": true,
             "value_type": "cumulative"
           },
           "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ]
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": null,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          "xaxis": {
+            "show": true
           },
-          "id": 13,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
+          "yaxes": [
             {
-              "refId": "B",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.sent-messages.min1_rate, 3, 5, 9, 11, 13)",
-              "textEditor": true
+              "format": "percentunit",
+              "label": "",
+              "logBase": 1,
+              "max": 1,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
             }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Sent Messages: 1 Minute Rate",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
           ]
         }
       ],
@@ -446,28 +352,181 @@
           "error": false,
           "fill": 1,
           "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
             "threshold1": null,
             "threshold1Color": "rgba(216, 200, 27, 0.27)",
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "id": 3,
+          "id": 13,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-MarkSweep.time, 3, 5, 9)"
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-Scavenge.time, 3, 5, 9)"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "GC Time",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ms",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 14,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-MarkSweep.count, 3, 5, 9)"
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-Scavenge.count, 3, 5, 9)"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "GC Count",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 15,
+          "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": false,
-            "current": true,
+            "current": false,
             "max": false,
             "min": false,
             "rightSide": true,
             "show": false,
             "total": false,
-            "values": true
+            "values": false
           },
           "lines": true,
           "linewidth": 2,
@@ -483,25 +542,41 @@
           "steppedLine": false,
           "targets": [
             {
-              "hide": false,
+              "refId": "A",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.class-loading.loaded, 3, 5, 9)"
+            },
+            {
               "refId": "B",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.actors.$Actors.running-actors, 3, 5, 9, 11, 13)",
-              "textEditor": true
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.class-loading.unloaded, 3, 5, 9)"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Running Actors",
+          "title": "Class Loading",
           "tooltip": {
+            "msResolution": false,
             "shared": true,
             "value_type": "cumulative"
           },
           "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
           ]
         }
       ],
@@ -547,6 +622,7 @@
           "value": "*"
         },
         "datasource": null,
+        "hide": 0,
         "includeAll": true,
         "multi": true,
         "multiFormat": "glob",
@@ -559,7 +635,34 @@
           }
         ],
         "query": "*.gauges.servers.*",
-        "refresh": true,
+        "refresh": 1,
+        "refresh_on_load": false,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allFormat": "wildcard",
+        "current": {
+          "value": [
+            "*"
+          ],
+          "text": "*"
+        },
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "multiFormat": "glob",
+        "name": "Applications",
+        "options": [
+          {
+            "text": "All",
+            "value": "*",
+            "selected": true
+          }
+        ],
+        "query": "*.gauges.servers.$Servers.apps.*",
+        "refresh": 1,
         "refresh_on_load": false,
         "regex": "",
         "type": "query"
@@ -571,168 +674,100 @@
           "value": "*"
         },
         "datasource": null,
+        "hide": 0,
         "includeAll": true,
         "multi": true,
         "multiFormat": "glob",
-        "name": "Apps",
+        "name": "HeapType",
         "options": [
           {
             "text": "All",
             "value": "*",
             "selected": true
-          }
-        ],
-        "query": "*.gauges.servers.*.apps.*",
-        "refresh": true,
-        "refresh_on_load": false,
-        "regex": "",
-        "type": "query"
-      },
-      {
-        "allFormat": "wildcard",
-        "current": {
-          "text": "All",
-          "value": "*"
-        },
-        "datasource": null,
-        "hideLabel": false,
-        "includeAll": true,
-        "multi": true,
-        "multiFormat": "glob",
-        "name": "ActorSystems",
-        "options": [
+          },
           {
-            "text": "All",
-            "value": "*",
-            "selected": true
-          }
-        ],
-        "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*",
-        "refresh": true,
-        "refresh_on_load": false,
-        "regex": "",
-        "tags": [],
-        "type": "query",
-        "useTags": true
-      },
-      {
-        "allFormat": "wildcard",
-        "current": {
-          "text": "All",
-          "value": "*"
-        },
-        "datasource": null,
-        "hideLabel": false,
-        "includeAll": true,
-        "multi": true,
-        "multiFormat": "glob",
-        "name": "Dispatchers",
-        "options": [
+            "text": "committed",
+            "value": "committed",
+            "selected": false
+          },
           {
-            "text": "All",
-            "value": "*",
-            "selected": true
-          }
-        ],
-        "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*.dispatchers.*",
-        "refresh": true,
-        "refresh_on_load": false,
-        "regex": "",
-        "tags": [],
-        "type": "query",
-        "useTags": true
-      },
-      {
-        "allFormat": "wildcard",
-        "current": {
-          "text": "All",
-          "value": "*"
-        },
-        "datasource": null,
-        "includeAll": true,
-        "multi": true,
-        "multiFormat": "glob",
-        "name": "Actors",
-        "options": [
-          {
-            "text": "All",
-            "value": "*",
-            "selected": true
-          }
-        ],
-        "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*.dispatchers.*.actors.*",
-        "refresh": true,
-        "refresh_on_load": false,
-        "regex": "",
-        "tags": [],
-        "type": "query",
-        "useTags": true
-      },
-      {
-        "allFormat": "wildcard",
-        "current": {
-          "text": "max",
-          "value": "max"
-        },
-        "datasource": null,
-        "includeAll": false,
-        "multi": true,
-        "multiFormat": "glob",
-        "name": "MetricValue",
-        "options": [
+            "text": "init",
+            "value": "init",
+            "selected": false
+          },
           {
             "text": "max",
             "value": "max",
-            "selected": true
-          },
-          {
-            "text": "mean",
-            "value": "mean",
             "selected": false
           },
           {
-            "text": "median",
-            "value": "median",
+            "text": "usage",
+            "value": "usage",
             "selected": false
           },
           {
-            "text": "min",
-            "value": "min",
-            "selected": false
-          },
-          {
-            "text": "p75",
-            "value": "p75",
-            "selected": false
-          },
-          {
-            "text": "p95",
-            "value": "p95",
-            "selected": false
-          },
-          {
-            "text": "p98",
-            "value": "p98",
-            "selected": false
-          },
-          {
-            "text": "p99",
-            "value": "p99",
-            "selected": false
-          },
-          {
-            "text": "p999",
-            "value": "p999",
-            "selected": false
-          },
-          {
-            "text": "stddev",
-            "value": "stddev",
+            "text": "used",
+            "value": "used",
             "selected": false
           }
         ],
-        "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*.dispatchers.*.actors.*.mailbox-size.*",
-        "refresh": true,
+        "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.heap.*",
+        "refresh": 1,
+        "refresh_on_load": false,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allFormat": "wildcard",
+        "current": {
+          "text": "All",
+          "value": "*"
+        },
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "multiFormat": "glob",
+        "name": "MemoryPools",
+        "options": [
+          {
+            "text": "All",
+            "value": "*",
+            "selected": true
+          },
+          {
+            "text": "Code-Cache",
+            "value": "Code-Cache",
+            "selected": false
+          },
+          {
+            "text": "Compressed-Class-Space",
+            "value": "Compressed-Class-Space",
+            "selected": false
+          },
+          {
+            "text": "Metaspace",
+            "value": "Metaspace",
+            "selected": false
+          },
+          {
+            "text": "PS-Eden-Space",
+            "value": "PS-Eden-Space",
+            "selected": false
+          },
+          {
+            "text": "PS-Old-Gen",
+            "value": "PS-Old-Gen",
+            "selected": false
+          },
+          {
+            "text": "PS-Survivor-Space",
+            "value": "PS-Survivor-Space",
+            "selected": false
+          }
+        ],
+        "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.pools.*",
+        "refresh": 1,
         "refresh_on_load": false,
         "regex": "",
         "type": "query"
@@ -742,7 +777,8 @@
   "annotations": {
     "list": []
   },
-  "schemaVersion": 8,
-  "version": 3,
+  "refresh": false,
+  "schemaVersion": 12,
+  "version": 16,
   "links": []
 }

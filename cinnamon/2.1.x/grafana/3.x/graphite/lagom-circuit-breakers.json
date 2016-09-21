@@ -12,6 +12,27 @@
     {
       "collapse": false,
       "editable": true,
+      "height": "25px",
+      "panels": [
+        {
+          "content": "# Lagom Circuit Breakers",
+          "editable": true,
+          "error": false,
+          "id": 9,
+          "isNew": true,
+          "links": [],
+          "mode": "markdown",
+          "span": 12,
+          "style": {},
+          "title": "",
+          "type": "text"
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
       "height": "250px",
       "panels": [
         {
