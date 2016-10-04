@@ -152,7 +152,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actor-failure\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.actor-failure\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -306,7 +306,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"dead-letter\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.dead-letter\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -459,7 +459,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"unhandled-message\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.unhandled-message\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -612,7 +612,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"log-error\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.log-error\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -765,7 +765,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"log-warning\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.log-warning\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -948,7 +948,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"mailbox-size-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.mailbox-size-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -1101,7 +1101,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"mailbox-time-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.mailbox-time-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -1254,7 +1254,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"processing-time-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.processing-time-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -1407,7 +1407,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"stash-size-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.stash-size-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }

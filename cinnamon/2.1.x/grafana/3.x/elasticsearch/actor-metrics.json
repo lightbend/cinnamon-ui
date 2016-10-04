@@ -130,7 +130,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"mailbox-size\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.mailbox-size\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -263,7 +263,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "metric:\"processed-messages\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.processed-messages\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -405,7 +405,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "metric:\"mailbox-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.mailbox-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -538,7 +538,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"processing-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.processing-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -679,7 +679,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"stash-size\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.stash-size\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -812,7 +812,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "metric:\"sent-messages\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.sent-messages\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -954,7 +954,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "_type:counter AND host:$Servers AND application:$Apps AND metric:running-actors AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "_type:counter AND host:$Servers AND application:$Apps AND metric:actors.running-actors AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"

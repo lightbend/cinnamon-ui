@@ -135,7 +135,7 @@
                 }
               ],
               "timeField": "@timestamp",
-              "query": "metric:\"trace-time\" AND host:$Servers AND application:$Apps AND trace-span:$TraceIdentifiers"
+              "query": "metric:\"traces.trace-time\" AND host:$Servers AND application:$Apps AND trace-span:$TraceIdentifiers"
             }
           ],
           "timeFrom": null,
@@ -276,7 +276,7 @@
                 }
               ],
               "timeField": "@timestamp",
-              "query": "metric:\"completed-traces\" AND host:$Servers AND application:$Apps AND trace-span:$TraceIdentifiers"
+              "query": "metric:\"traces.completed-traces\" AND host:$Servers AND application:$Apps AND trace-span:$TraceIdentifiers"
             }
           ],
           "timeFrom": null,
@@ -411,7 +411,7 @@
                 }
               ],
               "timeField": "@timestamp",
-              "query": "metric:\"trace-time-limit\" AND host:$Servers AND application:$Apps AND trace-span:$TraceIdentifiers"
+              "query": "metric:\"traces.trace-time-limit\" AND host:$Servers AND application:$Apps AND trace-span:$TraceIdentifiers"
             }
           ],
           "timeFrom": null,
