@@ -98,7 +98,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "metric:\"queue-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:*",
+              "query": "metric:\"dispatchers.queue-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:*",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -220,7 +220,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"processing-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:*",
+              "query": "metric:\"dispatchers.processing-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:*",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -351,7 +351,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:queue-size",
+              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.queue-size",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -474,7 +474,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:processing",
+              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.processing",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -597,7 +597,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:pool-size",
+              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.pool-size",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -720,7 +720,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:active-threads",
+              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.active-threads",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -851,7 +851,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:running-threads",
+              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.running-threads",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -974,7 +974,7 @@
                   "type": "sum"
                 }
               ],
-              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:parallelism",
+              "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.parallelism",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
