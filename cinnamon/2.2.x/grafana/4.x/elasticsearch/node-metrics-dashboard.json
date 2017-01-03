@@ -34,6 +34,8 @@
             "legend": {
               "avg": false,
               "current": false,
+              "hideEmpty": true,
+              "hideZero": true,
               "max": false,
               "min": false,
               "show": false,
@@ -163,7 +165,7 @@
               {
                 "format": "short",
                 "label": "Phi Accrual Value",
-                "logBase": 1,
+                "logBase": 2,
                 "max": null,
                 "min": null,
                 "show": true
@@ -222,9 +224,14 @@
           "name": "SelfNodes",
           "options": [],
           "query": "{\"find\": \"terms\", \"field\": \"self-node\"}",
-          "refresh": 1,
+          "refresh": 2,
           "regex": "",
-          "type": "query"
+          "type": "query",
+          "label": null,
+          "sort": 0,
+          "allValue": null,
+          "tagsQuery": null,
+          "tagValuesQuery": null
         },
         {
           "current": {},
@@ -235,9 +242,14 @@
           "name": "RemoteNodes",
           "options": [],
           "query": "{\"find\": \"terms\", \"field\": \"remote-node\", \"query\":\"self-node:$SelfNodes\"}",
-          "refresh": 1,
+          "refresh": 2,
           "regex": "",
-          "type": "query"
+          "type": "query",
+          "label": null,
+          "sort": 0,
+          "allValue": null,
+          "tagsQuery": null,
+          "tagValuesQuery": null
         }
       ]
     },

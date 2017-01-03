@@ -1,8 +1,10 @@
 {
   "id": null,
   "title": "Node Metrics",
-  "originalTitle": "Node Metrics",
-  "tags": [],
+  "tags": [
+    "akka",
+    "demo"
+  ],
   "style": "dark",
   "timezone": "browser",
   "editable": false,
@@ -50,7 +52,7 @@
         "name": "SelfNodes",
         "options": [],
         "query": "*.gauges.servers.*.apps.*.metrics.self-nodes.*",
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "sort": 0,
         "tagValuesQuery": null,
@@ -68,7 +70,7 @@
         "name": "RemoteNodes",
         "options": [],
         "query": "*.gauges.servers.*.apps.*.metrics.self-nodes.$SelfNodes.remote-nodes.*",
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "sort": 0,
         "tagValuesQuery": null,
@@ -82,7 +84,7 @@
   },
   "refresh": false,
   "schemaVersion": 13,
-  "version": 6,
+  "version": 8,
   "links": [],
   "gnetId": null,
   "rows": [
@@ -101,6 +103,8 @@
           "legend": {
             "avg": false,
             "current": false,
+            "hideEmpty": true,
+            "hideZero": true,
             "max": false,
             "min": false,
             "show": false,
@@ -157,7 +161,7 @@
             {
               "format": "short",
               "label": null,
-              "logBase": 1,
+              "logBase": 2,
               "max": null,
               "min": null,
               "show": true
