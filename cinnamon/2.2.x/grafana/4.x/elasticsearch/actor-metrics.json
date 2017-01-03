@@ -63,7 +63,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -196,7 +196,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -260,7 +260,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "metric:\"actors.processed-messages\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
@@ -337,7 +337,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -402,7 +402,7 @@
                   "inlineScript": null,
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "metric:\"actors.mailbox-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
@@ -471,7 +471,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -612,7 +612,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -745,7 +745,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -809,7 +809,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "metric:\"actors.sent-messages\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
@@ -886,7 +886,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "null as zero",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -951,7 +951,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "_type:counter AND host:$Servers AND application:$Apps AND metric:actors.running-actors AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
