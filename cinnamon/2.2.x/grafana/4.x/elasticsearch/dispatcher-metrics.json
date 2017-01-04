@@ -41,7 +41,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -95,7 +95,7 @@
                   "inlineScript": null,
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "metric:\"dispatchers.queue-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:*",
@@ -164,7 +164,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -294,7 +294,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "null as zero",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -348,7 +348,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.queue-size",
@@ -417,7 +417,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "null as zero",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -471,7 +471,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.processing",
@@ -540,7 +540,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "null as zero",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -594,7 +594,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.pool-size",
@@ -663,7 +663,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "null as zero",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -717,7 +717,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.active-threads",
@@ -794,7 +794,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "null as zero",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -848,7 +848,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.running-threads",
@@ -917,7 +917,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "null as zero",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -971,7 +971,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "sum"
+                  "type": "max"
                 }
               ],
               "query": "_type:counter AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.parallelism",

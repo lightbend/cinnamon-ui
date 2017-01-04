@@ -46,7 +46,7 @@
             "linewidth": 2,
             "links": [],
             "minSpan": 4,
-            "nullPointMode": "null as zero",
+            "nullPointMode": "null",
             "percentage": false,
             "pointradius": 5,
             "points": false,

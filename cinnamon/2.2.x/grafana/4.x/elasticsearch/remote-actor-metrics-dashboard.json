@@ -42,7 +42,7 @@
             "lines": true,
             "linewidth": 2,
             "links": [],
-            "nullPointMode": "connected",
+            "nullPointMode": "null",
             "percentage": false,
             "pointradius": 5,
             "points": false,
@@ -106,7 +106,7 @@
                     "id": "1",
                     "meta": {},
                     "settings": {},
-                    "type": "sum"
+                    "type": "max"
                   }
                 ],
                 "query": "metric:\"actors.remote-sent-messages\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
@@ -174,7 +174,7 @@
             "lines": true,
             "linewidth": 2,
             "links": [],
-            "nullPointMode": "connected",
+            "nullPointMode": "null",
             "percentage": false,
             "pointradius": 5,
             "points": false,
@@ -238,7 +238,7 @@
                     "id": "1",
                     "meta": {},
                     "settings": {},
-                    "type": "sum"
+                    "type": "max"
                   }
                 ],
                 "query": "metric:\"actors.remote-received-messages\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
@@ -314,7 +314,7 @@
             "lines": true,
             "linewidth": 2,
             "links": [],
-            "nullPointMode": "connected",
+            "nullPointMode": "null",
             "percentage": false,
             "pointradius": 5,
             "points": false,
@@ -378,7 +378,7 @@
                     "id": "1",
                     "meta": {},
                     "settings": {},
-                    "type": "sum"
+                    "type": "max"
                   }
                 ],
                 "query": "metric:\"actors.remote-sent-message-size\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
@@ -446,7 +446,7 @@
             "lines": true,
             "linewidth": 2,
             "links": [],
-            "nullPointMode": "connected",
+            "nullPointMode": "null",
             "percentage": false,
             "pointradius": 5,
             "points": false,
@@ -510,7 +510,7 @@
                     "id": "1",
                     "meta": {},
                     "settings": {},
-                    "type": "sum"
+                    "type": "max"
                   }
                 ],
                 "query": "metric:\"actors.remote-received-message-size\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
@@ -586,7 +586,7 @@
             "lines": true,
             "linewidth": 2,
             "links": [],
-            "nullPointMode": "null as zero",
+            "nullPointMode": "null",
             "percentage": false,
             "pointradius": 5,
             "points": false,
@@ -650,7 +650,7 @@
                     "id": "1",
                     "meta": {},
                     "settings": {},
-                    "type": "sum"
+                    "type": "max"
                   }
                 ],
                 "query": "metric:\"actors.remote-serialization-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
@@ -718,7 +718,7 @@
             "lines": true,
             "linewidth": 2,
             "links": [],
-            "nullPointMode": "connected",
+            "nullPointMode": "null",
             "percentage": false,
             "pointradius": 5,
             "points": false,
@@ -782,7 +782,7 @@
                     "id": "1",
                     "meta": {},
                     "settings": {},
-                    "type": "sum"
+                    "type": "max"
                   }
                 ],
                 "query": "metric:\"actors.remote-deserialization-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
