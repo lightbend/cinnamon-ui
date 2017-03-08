@@ -1,5 +1,5 @@
 {
-  "id": 1,
+  "id": null,
   "title": "Actor Metrics",
   "tags": [],
   "style": "dark",
@@ -8,28 +8,6 @@
   "hideControls": true,
   "sharedCrosshair": false,
   "rows": [
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "25px",
-      "panels": [
-        {
-          "content": "# Actor Metrics",
-          "editable": true,
-          "error": false,
-          "height": "",
-          "id": 4,
-          "isNew": true,
-          "links": [],
-          "mode": "markdown",
-          "span": 12,
-          "title": "",
-          "type": "text",
-          "transparent": true
-        }
-      ],
-      "title": "New row"
-    },
     {
       "collapse": false,
       "editable": true,
@@ -130,7 +108,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.mailbox-size\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.mailbox-size\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -263,7 +241,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.processed-messages\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.processed-messages\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -405,7 +383,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.mailbox-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.mailbox-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -538,7 +516,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.processing-time\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.processing-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -679,7 +657,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.stash-size\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.stash-size\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -812,7 +790,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.sent-messages\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.sent-messages\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -954,7 +932,7 @@
                   "type": "max"
                 }
               ],
-              "query": "_type:counter AND host:$Servers AND application:$Apps AND metric:actors.running-actors AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "_type:counter AND host:$Servers AND application:$Applications AND metric:actors.running-actors AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "target": "",
               "timeField": "@timestamp"
@@ -1049,9 +1027,9 @@
         "hide": 0,
         "includeAll": true,
         "multi": true,
-        "name": "Apps",
+        "name": "Applications",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"application\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\" }",
         "refresh": 1,
         "regex": "",
         "tagValuesQuery": "apps.$tag.*",
@@ -1067,7 +1045,7 @@
         "multi": true,
         "name": "ActorSystems",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"actor-system\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"actor-system\", \"query\":\"application:$Applications AND host:$Servers\"}",
         "refresh": 1,
         "regex": "",
         "tagValuesQuery": "apps.$tag.*",
@@ -1083,7 +1061,7 @@
         "multi": true,
         "name": "Dispatchers",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"dispatcher\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"dispatcher\", \"query\":\"actor-system:$ActorSystems AND application:$Applications AND host:$Servers\"}",
         "refresh": 1,
         "regex": "",
         "tagValuesQuery": "apps.$tag.*",
@@ -1099,7 +1077,7 @@
         "multi": true,
         "name": "Actors",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"actor\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"actor\", \"query\":\"dispatcher:$Dispatchers AND actor-system:$ActorSystems AND application:$Applications AND host:$Servers\" }",
         "refresh": 1,
         "regex": "",
         "tagValuesQuery": "apps.$tag.*",

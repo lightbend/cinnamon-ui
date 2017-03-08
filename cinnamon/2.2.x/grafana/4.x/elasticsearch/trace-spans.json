@@ -1,5 +1,5 @@
 {
-  "id": 4,
+  "id": null,
   "title": "Trace Spans",
   "tags": [],
   "style": "dark",
@@ -8,28 +8,6 @@
   "hideControls": true,
   "sharedCrosshair": false,
   "rows": [
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "25px",
-      "panels": [
-        {
-          "content": "# Trace Spans",
-          "editable": true,
-          "error": false,
-          "height": "",
-          "id": 12,
-          "isNew": true,
-          "links": [],
-          "mode": "markdown",
-          "span": 12,
-          "title": "",
-          "transparent": true,
-          "type": "text"
-        }
-      ],
-      "title": "New row"
-    },
     {
       "collapse": false,
       "editable": true,
@@ -135,7 +113,7 @@
                 }
               ],
               "timeField": "@timestamp",
-              "query": "metric:\"traces.trace-time\" AND host:$Servers AND application:$Apps AND trace-span:$TraceIdentifiers"
+              "query": "metric:\"traces.trace-time\" AND host:$Servers AND application:$Applications AND trace-span:$TraceIdentifiers"
             }
           ],
           "timeFrom": null,
@@ -276,7 +254,7 @@
                 }
               ],
               "timeField": "@timestamp",
-              "query": "metric:\"traces.completed-traces\" AND host:$Servers AND application:$Apps AND trace-span:$TraceIdentifiers"
+              "query": "metric:\"traces.completed-traces\" AND host:$Servers AND application:$Applications AND trace-span:$TraceIdentifiers"
             }
           ],
           "timeFrom": null,
@@ -411,7 +389,7 @@
                 }
               ],
               "timeField": "@timestamp",
-              "query": "metric:\"traces.trace-time-limit\" AND host:$Servers AND application:$Apps AND trace-span:$TraceIdentifiers"
+              "query": "metric:\"traces.trace-time-limit\" AND host:$Servers AND application:$Applications AND trace-span:$TraceIdentifiers"
             }
           ],
           "timeFrom": null,
@@ -483,34 +461,36 @@
   "templating": {
     "list": [
       {
-        "allFormat": "wildcard",
         "current": {},
         "datasource": null,
+        "hide": 0,
         "includeAll": true,
         "multi": true,
-        "multiFormat": "glob",
         "name": "Servers",
         "options": [],
         "query": "{\"find\": \"terms\", \"field\": \"host\"}",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "",
-        "type": "query"
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
       },
       {
-        "allFormat": "wildcard",
         "current": {},
         "datasource": null,
+        "hide": 0,
         "includeAll": true,
         "multi": true,
-        "multiFormat": "glob",
-        "name": "Apps",
+        "name": "Applications",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"application\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\" }",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "",
-        "type": "query"
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
       },
       {
         "allFormat": "wildcard",

@@ -1,5 +1,5 @@
 {
-  "id": 3,
+  "id": null,
   "title": "JVM Metrics",
   "tags": [],
   "style": "dark",
@@ -8,28 +8,6 @@
   "hideControls": true,
   "sharedCrosshair": false,
   "rows": [
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "25px",
-      "panels": [
-        {
-          "content": "# JVM Metrics",
-          "editable": true,
-          "error": false,
-          "height": "",
-          "id": 4,
-          "isNew": true,
-          "links": [],
-          "mode": "markdown",
-          "span": 12,
-          "title": "",
-          "type": "text",
-          "transparent": true
-        }
-      ],
-      "title": "New row"
-    },
     {
       "collapse": false,
       "editable": true,
@@ -49,6 +27,7 @@
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
           "id": 1,
+          "interval": "10s",
           "isNew": true,
           "legend": {
             "avg": false,
@@ -180,6 +159,7 @@
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
           "id": 2,
+          "interval": "10s",
           "isNew": true,
           "legend": {
             "avg": false,
@@ -319,6 +299,7 @@
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
           "id": 3,
+          "interval": "10s",
           "isNew": true,
           "legend": {
             "avg": false,
@@ -458,6 +439,7 @@
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
           "id": 4,
+          "interval": "10s",
           "isNew": true,
           "legend": {
             "avg": false,
@@ -993,6 +975,7 @@
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
           "id": 7,
+          "interval": "10s",
           "isNew": true,
           "legend": {
             "avg": false,
@@ -1176,7 +1159,7 @@
     }
   ],
   "time": {
-    "from": "now-15m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -1217,7 +1200,10 @@
         "query": "{\"find\": \"terms\", \"field\": \"host\"}",
         "refresh": 1,
         "regex": "",
-        "type": "query"
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
       },
       {
         "current": {},
@@ -1227,10 +1213,13 @@
         "multi": true,
         "name": "Applications",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"application\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\" }",
         "refresh": 1,
         "regex": "",
-        "type": "query"
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
       },
       {
         "current": {},
