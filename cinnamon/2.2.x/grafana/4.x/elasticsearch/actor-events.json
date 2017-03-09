@@ -1,5 +1,5 @@
 {
-  "id": 2,
+  "id": null,
   "title": "Actor Events",
   "tags": [],
   "style": "dark",
@@ -8,28 +8,6 @@
   "hideControls": true,
   "sharedCrosshair": false,
   "rows": [
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "25px",
-      "panels": [
-        {
-          "content": "# Actor Events",
-          "editable": true,
-          "error": false,
-          "height": "",
-          "id": 4,
-          "isNew": true,
-          "links": [],
-          "mode": "markdown",
-          "span": 12,
-          "title": "",
-          "type": "text",
-          "transparent": true
-        }
-      ],
-      "title": "New row"
-    },
     {
       "collapse": false,
       "editable": true,
@@ -152,7 +130,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.actor-failure\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.actor-failure\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -306,7 +284,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.dead-letter\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.dead-letter\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -459,7 +437,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.unhandled-message\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.unhandled-message\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -612,7 +590,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.log-error\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.log-error\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -765,7 +743,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.log-warning\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.log-warning\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -948,7 +926,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.mailbox-size-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.mailbox-size-limit\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -1101,7 +1079,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.mailbox-time-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.mailbox-time-limit\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -1254,7 +1232,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.processing-time-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.processing-time-limit\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -1407,7 +1385,7 @@
                   "type": "max"
                 }
               ],
-              "query": "metric:\"actors.stash-size-limit\" AND host:$Servers AND application:$Apps AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "query": "metric:\"actors.stash-size-limit\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -1500,9 +1478,9 @@
         "hide": 0,
         "includeAll": true,
         "multi": true,
-        "name": "Apps",
+        "name": "Applications",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"application\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\" }",
         "refresh": 1,
         "regex": "",
         "tagValuesQuery": "apps.$tag.*",
@@ -1518,7 +1496,7 @@
         "multi": true,
         "name": "ActorSystems",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"actor-system\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"actor-system\", \"query\":\"application:$Applications AND host:$Servers\"}",
         "refresh": 1,
         "regex": "",
         "tagValuesQuery": "apps.$tag.*",
@@ -1534,7 +1512,7 @@
         "multi": true,
         "name": "Dispatchers",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"dispatcher\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"dispatcher\", \"query\":\"actor-system:$ActorSystems AND application:$Applications AND host:$Servers\"}",
         "refresh": 1,
         "regex": "",
         "tagValuesQuery": "apps.$tag.*",
@@ -1550,7 +1528,7 @@
         "multi": true,
         "name": "Actors",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"actor\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"actor\", \"query\":\"dispatcher:$Dispatchers AND actor-system:$ActorSystems AND application:$Applications AND host:$Servers\" }",
         "refresh": 1,
         "regex": "",
         "tagValuesQuery": "apps.$tag.*",
