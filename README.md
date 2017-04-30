@@ -15,4 +15,4 @@ There are Grafana dashboards for the following, when available for a particular 
 * JVM Metrics
 * Lagom Circuit Breakers
 
-For more information on how to install and use these dashboards please visit the [monitoring documentation](https://developer.lightbend.com/docs/monitoring/latest/home.html).
+For more information on how to install and use these dashboards please visit the [Cinnamon documentation](https://developer.lightbend.com/docs/cinnamon/latest/home.html).
