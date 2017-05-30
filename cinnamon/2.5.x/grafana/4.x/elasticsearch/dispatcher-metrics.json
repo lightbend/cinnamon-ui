@@ -1,0 +1,1190 @@
+{
+  "id": null,
+  "title": "Dispatcher Metrics",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": true,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 5,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "actor-system",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "dispatcher",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "$MetricType",
+                  "id": "1",
+                  "inlineScript": null,
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"dispatchers.queue-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:*",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Queue time: $MetricType",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ns",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 6,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "actor-system",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "dispatcher",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "$MetricType",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"dispatchers.processing-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:*",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Processing time: $MetricType",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ns",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 9,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}",
+              "bucketAggs": [
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "dispatcher",
+                  "id": "8",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "count",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "_type:counter AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.queue-size",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Queue Size",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 10,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}",
+              "bucketAggs": [
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "dispatcher",
+                  "id": "8",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "count",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "_type:counter AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.processing",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Processing",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 11,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}",
+              "bucketAggs": [
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "dispatcher",
+                  "id": "8",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "_type:gauge AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.pool-size",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Pool Size",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 12,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}",
+              "bucketAggs": [
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "dispatcher",
+                  "id": "8",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "_type:gauge AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.active-threads",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Active Threads",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 14,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}",
+              "bucketAggs": [
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "dispatcher",
+                  "id": "8",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "_type:gauge AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.running-threads",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Running Threads",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 15,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}",
+              "bucketAggs": [
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "dispatcher",
+                  "id": "8",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "_type:gauge AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND !actor:* AND metric:dispatchers.parallelism",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Parallelism",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "Servers",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"host\"}",
+        "refresh": 1,
+        "regex": "",
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "Applications",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\" }",
+        "refresh": 1,
+        "regex": "",
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "ActorSystems",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"actor-system\", \"query\":\"application:$Applications AND host:$Servers\"}",
+        "refresh": 1,
+        "regex": "",
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "Dispatchers",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"dispatcher\", \"query\":\"actor-system:$ActorSystems AND application:$Applications AND host:$Servers\"}",
+        "refresh": 1,
+        "regex": "",
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "tags": [],
+          "text": "max",
+          "value": "max"
+        },
+        "datasource": null,
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "MetricType",
+        "options": [
+          {
+            "selected": true,
+            "text": "max",
+            "value": "max"
+          },
+          {
+            "selected": false,
+            "text": "mean",
+            "value": "mean"
+          },
+          {
+            "selected": false,
+            "text": "min",
+            "value": "min"
+          },
+          {
+            "selected": false,
+            "text": "p50",
+            "value": "p50"
+          },
+          {
+            "selected": false,
+            "text": "p75",
+            "value": "p75"
+          },
+          {
+            "selected": false,
+            "text": "p95",
+            "value": "p95"
+          },
+          {
+            "selected": false,
+            "text": "p98",
+            "value": "p98"
+          },
+          {
+            "selected": false,
+            "text": "p99",
+            "value": "p99"
+          },
+          {
+            "selected": false,
+            "text": "p999",
+            "value": "p999"
+          }
+        ],
+        "query": "max, mean, min, p50, p75, p95, p98, p99, p999",
+        "refresh": 0,
+        "regex": "",
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "custom",
+        "useTags": false
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": false,
+  "schemaVersion": 12,
+  "version": 5,
+  "links": [],
+  "gnetId": null
+}
