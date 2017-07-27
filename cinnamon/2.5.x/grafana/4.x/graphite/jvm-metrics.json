@@ -1,5 +1,5 @@
 {
-  "id": 4,
+  "id": null,
   "title": "JVM Metrics",
   "originalTitle": "JVM Metrics",
   "tags": [],
@@ -75,7 +75,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.*.jvm.memory-usage.heap.$HeapType, 3, 5, 10)",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.heap_$HeapType, 3, 5, 9)",
               "textEditor": false
             }
           ],
@@ -148,7 +148,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.*.jvm.memory-usage.non-heap.$HeapType, 3, 5, 10)",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.non-heap_$HeapType, 3, 5, 9)",
               "textEditor": false
             }
           ],
@@ -221,7 +221,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.*.jvm.memory-usage.total.$HeapType, 3, 5, 10)",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.total_$HeapType, 3, 5, 9)",
               "textEditor": false
             }
           ],
@@ -302,7 +302,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.*.jvm.memory-usage.pools.$MemoryPools.usage, 3, 5, 10)",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.pools_$MemoryPools\\_usage, 3, 5, 9)",
               "textEditor": false
             }
           ],
@@ -383,11 +383,11 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-MarkSweep.time, 3, 5, 9)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-MarkSweep_time, 3, 5, 9)"
             },
             {
               "refId": "B",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-Scavenge.time, 3, 5, 9)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-Scavenge_time, 3, 5, 9)"
             }
           ],
           "timeFrom": null,
@@ -458,11 +458,11 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-MarkSweep.count, 3, 5, 9)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-MarkSweep_count, 3, 5, 9)"
             },
             {
               "refId": "B",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-Scavenge.count, 3, 5, 9)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-Scavenge_count, 3, 5, 9)"
             }
           ],
           "timeFrom": null,
@@ -711,10 +711,10 @@
             "selected": false
           }
         ],
-        "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.heap.*",
+        "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.heap_*",
         "refresh": 1,
         "refresh_on_load": false,
-        "regex": "",
+        "regex": "/heap_(.*)/",
         "type": "query"
       },
       {
@@ -766,10 +766,10 @@
             "selected": false
           }
         ],
-        "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.pools.*",
+        "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.pools_*",
         "refresh": 1,
         "refresh_on_load": false,
-        "regex": "",
+        "regex": "/pools_([\\w-]*)_.*/",
         "type": "query"
       }
     ]

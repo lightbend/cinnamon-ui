@@ -1,5 +1,5 @@
 {
-  "id": 5,
+  "id": null,
   "title": "Lagom Circuit Breakers",
   "originalTitle": "Lagom Circuit Breakers",
   "tags": [],
@@ -83,7 +83,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.state, 3, 5, 7)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.lagom.circuit-breakers.$CircuitBreakers.state, 3, 5, 9)",
               "textEditor": false
             }
           ],
@@ -146,13 +146,13 @@
             {
               "hide": false,
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.throughput.$Rate, 3, 5, 7, 9)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.lagom.circuit-breakers.$CircuitBreakers.throughput.$Rate, 3, 5, 9, 11)",
               "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Throughput",
+          "title": "Throughput – $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -165,80 +165,6 @@
             "short"
           ]
         },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": null,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 6,
-          "isNew": true,
-          "leftYAxisLabel": "ops/second",
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "hide": false,
-              "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.throughput-failure.$Rate, 3, 5, 7, 9)",
-              "textEditor": true
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Throughput Failure",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "ops",
-            "short"
-          ]
-        }
-      ],
-      "title": "New row"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
         {
           "aliasColors": {},
           "bars": false,
@@ -278,19 +204,19 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.latency.$MetricValue, 3, 5, 7, 9)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.lagom.circuit-breakers.$CircuitBreakers.latency.$MetricValue, 3, 5, 9, 11)",
               "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Latency",
+          "title": "Latency – $MetricValue",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -356,13 +282,13 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.success-counter.$Rate, 3, 5, 7, 9)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.lagom.circuit-breakers.$CircuitBreakers.success.$Rate, 3, 5, 9, 11)",
               "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Success Count",
+          "title": "Success – $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -420,13 +346,13 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.circuit-breaker.$CircuitBreakers.failure-counter.$Rate, 3, 5, 7, 9)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.lagom.circuit-breakers.$CircuitBreakers.failure.$Rate, 3, 5, 9, 11)",
               "textEditor": true
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Failure Count",
+          "title": "Failure – $Rate",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -516,7 +442,7 @@
             "selected": true
           }
         ],
-        "query": "stats.gauges.servers.*.apps.*",
+        "query": "stats.gauges.servers.$Servers.apps.*",
         "refresh": true,
         "regex": "",
         "type": "query"
@@ -539,7 +465,7 @@
             "selected": true
           }
         ],
-        "query": "stats.gauges.servers.*.apps.*.circuit-breaker.*",
+        "query": "stats.gauges.servers.$Servers.apps.$Apps.metrics.lagom.circuit-breakers.*",
         "refresh": true,
         "regex": "",
         "type": "query"
@@ -547,20 +473,15 @@
       {
         "allFormat": "glob",
         "current": {
-          "text": "All",
-          "value": "{max,mean,median,min,p75,p95,p98,p99,p999,stddev}"
+          "text": "max",
+          "value": "max"
         },
         "datasource": null,
-        "includeAll": true,
+        "includeAll": false,
         "multi": true,
         "multiFormat": "glob",
         "name": "MetricValue",
         "options": [
-          {
-            "text": "All",
-            "value": "{max,mean,median,min,p75,p95,p98,p99,p999,stddev}",
-            "selected": true
-          },
           {
             "text": "max",
             "value": "max",
@@ -612,7 +533,7 @@
             "selected": false
           }
         ],
-        "query": "stats.gauges.servers.*.apps.*.circuit-breaker.*.latency.*",
+        "query": "stats.gauges.servers.*.apps.*.metrics.lagom.circuit-breakers.*.latency.*",
         "refresh": true,
         "regex": "",
         "type": "query"
