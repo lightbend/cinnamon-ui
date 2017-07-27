@@ -1,0 +1,2256 @@
+{
+  "id": null,
+  "title": "Http Server Metrics",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "sharedCrosshair": false,
+  "hideControls": false,
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Servers",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"host\"}",
+        "refresh": 1,
+        "regex": "",
+        "sort": 0,
+        "tagValuesQuery": null,
+        "tagsQuery": null,
+        "type": "query"
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Applications",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\"}",
+        "refresh": 1,
+        "regex": "",
+        "sort": 0,
+        "tagValuesQuery": null,
+        "tagsQuery": null,
+        "type": "query"
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "ActorSystems",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"actor-system\", \"query\":\"host:$Servers AND application:$Applications\"}",
+        "refresh": 1,
+        "regex": "",
+        "sort": 0,
+        "tagValuesQuery": null,
+        "tagsQuery": null,
+        "type": "query"
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "HttpServers",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"http-server\", \"query\":\"host:$Servers AND application:$Applications AND actor-system:$ActorSystems\"}",
+        "refresh": 1,
+        "regex": "",
+        "sort": 0,
+        "tagValuesQuery": null,
+        "tagsQuery": null,
+        "type": "query"
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": false,
+  "schemaVersion": 13,
+  "version": 3,
+  "links": [],
+  "gnetId": null,
+  "rows": [
+    {
+      "title": "Dashboard Row",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "height": "200px",
+          "id": 10,
+          "interval": "10s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-requests",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "m1_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.requests\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "A",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-responses",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "m1_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.responses\"  AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "B",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Requests/Responses: 1 min rate",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "height": "200px",
+          "id": 11,
+          "interval": "10s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-requests",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "m15_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.requests\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "A",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-responses",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "m15_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.responses\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "B",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Requests/Responses: 15 min rate",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "height": "200px",
+          "id": 9,
+          "interval": "10s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-m1-rate",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "m1_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.connections\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "A",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Connections: 1min rate",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "showTitle": false,
+      "titleSize": "h6",
+      "height": 250,
+      "repeat": null,
+      "repeatRowId": null,
+      "repeatIteration": null,
+      "collapse": false
+    },
+    {
+      "title": "Dashboard Row",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "height": "200px",
+          "id": 2,
+          "interval": "10s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-m1-rate",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "m1_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.responses-2xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "A",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Responses Rate 2xx: 1min rate",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "height": "200px",
+          "id": 4,
+          "interval": "10s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-max",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "max",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-2xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "A",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-p99",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "p99",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-2xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "B",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-p50",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "p50",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-2xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "C",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-min",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "select field",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "7",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "fake": true,
+                  "field": "@timestamp",
+                  "id": "3",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "min",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-2xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "D",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Response Time 2xx",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ns",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "showTitle": false,
+      "titleSize": "h6",
+      "height": 250,
+      "repeat": null,
+      "repeatRowId": null,
+      "repeatIteration": null,
+      "collapse": false
+    },
+    {
+      "title": "Dashboard Row",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "height": "200px",
+          "id": 3,
+          "interval": "10s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-m1-rate",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "m1_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.responses-4xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "A",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Responses Rate 4xx: 1min rate",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [
+              "total"
+            ]
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "height": "200px",
+          "id": 5,
+          "interval": "10s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-max",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "max",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-4xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "A",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-p99",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "p99",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-4xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "B",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-p50",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "p50",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-4xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "C",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-min",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "min",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-4xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "D",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Response Time 4xx",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ns",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "showTitle": false,
+      "titleSize": "h6",
+      "height": 250,
+      "repeat": null,
+      "repeatRowId": null,
+      "repeatIteration": null,
+      "collapse": false
+    },
+    {
+      "title": "Dashboard Row",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "height": "200px",
+          "id": 1,
+          "interval": "10s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-m1-rate",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "m1_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.responses-5xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "A",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Responses Rate 5xx: 1min rate",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "height": "200px",
+          "id": 6,
+          "interval": "10s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-max",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "max",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-5xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "A",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-p99",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "p99",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-5xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "B",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-p50",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "p50",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-5xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "C",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-min",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "application",
+                  "id": "4",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "actor-system",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "type": "terms",
+                  "field": "http-server",
+                  "id": "6",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "min",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "metric:\"http-servers.response-time-5xx\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers",
+              "refId": "D",
+              "timeField": "@timestamp"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Response Time 5xx",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ns",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "showTitle": false,
+      "titleSize": "h6",
+      "height": "250px",
+      "repeat": null,
+      "repeatRowId": null,
+      "repeatIteration": null,
+      "collapse": false
+    }
+  ]
+}
