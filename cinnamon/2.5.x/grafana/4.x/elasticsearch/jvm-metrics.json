@@ -52,7 +52,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -78,7 +78,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -108,7 +108,7 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:$Heap",
+              "query": "host:$Servers AND application:$Applications AND metric:$Heap",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -184,7 +184,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -210,7 +210,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -240,7 +240,7 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:$NonHeap",
+              "query": "host:$Servers AND application:$Applications AND metric:$NonHeap",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -324,7 +324,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -350,7 +350,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -380,7 +380,7 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:$TotalHeap",
+              "query": "host:$Servers AND application:$Applications AND metric:$TotalHeap",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -464,7 +464,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -490,7 +490,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -520,7 +520,7 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:$MemoryPool",
+              "query": "host:$Servers AND application:$Applications AND metric:$MemoryPool",
               "refId": "A",
               "timeField": "@timestamp"
             }
@@ -604,7 +604,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -630,7 +630,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -661,12 +661,12 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:metrics.jvm.garbage-collection.PS-MarkSweep.time",
+              "query": "host:$Servers AND application:$Applications AND metric:garbage-collection.PS-MarkSweep.time",
               "refId": "A",
               "timeField": "@timestamp"
             },
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -692,7 +692,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -723,7 +723,7 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:metrics.jvm.garbage-collection.PS-Scavenge.time",
+              "query": "host:$Servers AND application:$Applications AND metric:garbage-collection.PS-Scavenge.time",
               "refId": "B",
               "timeField": "@timestamp"
             }
@@ -799,7 +799,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -825,7 +825,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -855,12 +855,12 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:metrics.jvm.garbage-collection.PS-MarkSweep.count",
+              "query": "host:$Servers AND application:$Applications AND metric:garbage-collection.PS-MarkSweep.count",
               "refId": "A",
               "timeField": "@timestamp"
             },
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -886,7 +886,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -916,7 +916,7 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:metrics.jvm.garbage-collection.PS-Scavenge.count",
+              "query": "host:$Servers AND application:$Applications AND metric:garbage-collection.PS-Scavenge.count",
               "refId": "B",
               "timeField": "@timestamp"
             }
@@ -1000,7 +1000,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -1026,7 +1026,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -1056,12 +1056,12 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:metrics.jvm.class-loading.loaded",
+              "query": "host:$Servers AND application:$Applications AND metric:class-loading.loaded",
               "refId": "A",
               "timeField": "@timestamp"
             },
             {
-              "alias": "{{host}}-{{application}}-{{name}}",
+              "alias": "{{host}}-{{application}}-{{metric}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -1087,7 +1087,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "name",
+                  "field": "metric",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -1117,7 +1117,7 @@
                   "type": "max"
                 }
               ],
-              "query": "host:$Servers AND application:$Applications AND name:metrics.jvm.class-loading.unloaded",
+              "query": "host:$Servers AND application:$Applications AND metric:class-loading.unloaded",
               "refId": "B",
               "timeField": "@timestamp"
             }
@@ -1229,9 +1229,9 @@
         "multi": true,
         "name": "Heap",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"name\", \"query\": \"name:metrics.jvm.memory-usage.heap.*\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"metric\"}",
         "refresh": 1,
-        "regex": "",
+        "regex": "/memory-usage.heap.*/",
         "type": "query"
       },
       {
@@ -1242,9 +1242,9 @@
         "multi": true,
         "name": "NonHeap",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"name\", \"query\": \"name:metrics.jvm.memory-usage.non-heap.*\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"metric\"}",
         "refresh": 1,
-        "regex": "",
+        "regex": "/memory-usage.non-heap.*/",
         "type": "query"
       },
       {
@@ -1255,9 +1255,9 @@
         "multi": true,
         "name": "TotalHeap",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"name\", \"query\": \"name:metrics.jvm.memory-usage.total.*\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"metric\"}",
         "refresh": 1,
-        "regex": "",
+        "regex": "/memory-usage.total.*/",
         "type": "query"
       },
       {
@@ -1268,9 +1268,9 @@
         "multi": true,
         "name": "MemoryPool",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"name\", \"query\": \"name:metrics.jvm.memory-usage.pools.*\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"metric\"}",
         "refresh": 1,
-        "regex": "",
+        "regex": "/memory-usage.pools.*/",
         "type": "query",
         "useTags": false
       }
