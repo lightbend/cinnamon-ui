@@ -1,7 +1,7 @@
 {
   "id": null,
   "title": "Router Metrics",
-  "tags": ["akka", "demo"],
+  "tags": [],
   "style": "dark",
   "timezone": "browser",
   "editable": true,
@@ -193,7 +193,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.akka.systems.routerActorSystem.dispatchers.$Dispatchers.routers.$Routers.router-routed-messages.min1_rate, 3, 5, 9, 11, 13, 15)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.routers.$Routers.router-routed-messages.min1_rate, 3, 5, 9, 11, 13, 15)",
               "refId": "B",
               "textEditor": true
             }
@@ -265,7 +265,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.akka.systems.routerActorSystem.dispatchers.$Dispatchers.routers.$Routers.router-processing-time.$MetricValue, 3, 5, 9, 11, 13, 15)",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.routers.$Routers.router-processing-time.$MetricValue, 3, 5, 9, 11, 13, 15)",
               "refId": "B",
               "textEditor": true
             }
