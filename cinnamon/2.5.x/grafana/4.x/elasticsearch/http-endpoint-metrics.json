@@ -43,9 +43,9 @@
         "current": {},
         "datasource": null,
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": null,
-        "multi": false,
+        "multi": true,
         "name": "Servers",
         "options": [],
         "query": "{\"find\": \"terms\", \"field\": \"host\"}",
@@ -61,9 +61,9 @@
         "current": {},
         "datasource": null,
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": null,
-        "multi": false,
+        "multi": true,
         "name": "Applications",
         "options": [],
         "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\"}",
@@ -79,9 +79,9 @@
         "current": {},
         "datasource": null,
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": null,
-        "multi": false,
+        "multi": true,
         "name": "ActorSystems",
         "options": [],
         "query": "{\"find\": \"terms\", \"field\": \"actor-system\", \"query\":\"host:$Servers AND application:$Applications\"}",
@@ -174,7 +174,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-{{request-path}}-max",
+              "alias": "{{host}}-{{application}}-{{actor-system}}-{{http-server}}-{{request-path}}",
               "bucketAggs": [
                 {
                   "fake": true,
@@ -649,7 +649,7 @@
                   "id": "1",
                   "meta": {},
                   "settings": {},
-                  "type": "max"
+                  "type": "min"
                 }
               ],
               "query": "metric:\"request-paths.endpoint-response-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND http-server:$HttpServers AND request-path:$Endpoints",
