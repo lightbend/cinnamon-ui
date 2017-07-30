@@ -1229,9 +1229,9 @@
         "multi": true,
         "name": "Heap",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"metric\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"metric\", \"query\": \"metric:memory-usage.heap.*\"}",
         "refresh": 1,
-        "regex": "/memory-usage.heap.*/",
+        "regex": "",
         "type": "query"
       },
       {
@@ -1242,9 +1242,9 @@
         "multi": true,
         "name": "NonHeap",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"metric\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"metric\", \"query\": \"metric:memory-usage.non-heap.*\"}",
         "refresh": 1,
-        "regex": "/memory-usage.non-heap.*/",
+        "regex": "",
         "type": "query"
       },
       {
@@ -1255,9 +1255,9 @@
         "multi": true,
         "name": "TotalHeap",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"metric\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"metric\", \"query\": \"metric:memory-usage.total.*\"}",
         "refresh": 1,
-        "regex": "/memory-usage.total.*/",
+        "regex": "",
         "type": "query"
       },
       {
@@ -1268,9 +1268,9 @@
         "multi": true,
         "name": "MemoryPool",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"metric\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"metric\", \"query\": \"metric:memory-usage.pools.*\"}",
         "refresh": 1,
-        "regex": "/memory-usage.pools.*/",
+        "regex": "",
         "type": "query",
         "useTags": false
       }
