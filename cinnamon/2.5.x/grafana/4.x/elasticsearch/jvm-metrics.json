@@ -1,0 +1,1287 @@
+{
+  "id": null,
+  "title": "JVM Metrics",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": true,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 1,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:$Heap",
+              "refId": "A",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Heap",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:$NonHeap",
+              "refId": "A",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Non Heap",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "Row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 3,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:$TotalHeap",
+              "refId": "A",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total Heap",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 4,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value_double",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:$MemoryPool",
+              "refId": "A",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Memory Pool",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "percentunit",
+              "label": "",
+              "logBase": 1,
+              "max": 1,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 5,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "10s",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:garbage-collection.PS-MarkSweep.time",
+              "refId": "A",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "10s",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "hide": false,
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:garbage-collection.PS-Scavenge.time",
+              "refId": "B",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "GC Time",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ms",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 6,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "10s",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:garbage-collection.PS-MarkSweep.count",
+              "refId": "A",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "10s",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:garbage-collection.PS-Scavenge.count",
+              "refId": "B",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "GC Count",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 7,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:class-loading.loaded",
+              "refId": "A",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{metric}}",
+              "bucketAggs": [
+                {
+                  "fake": true,
+                  "field": "host",
+                  "id": "3",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "fake": true,
+                  "field": "application",
+                  "id": "4",
+                  "settings": {
+                    "order": "asc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                },
+                {
+                  "type": "terms",
+                  "field": "metric",
+                  "id": "5",
+                  "fake": true,
+                  "settings": {
+                    "order": "asc",
+                    "size": "10",
+                    "orderBy": "_term"
+                  }
+                },
+                {
+                  "field": "@timestamp",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [
+                {
+                  "field": "value",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+                }
+              ],
+              "query": "host:$Servers AND application:$Applications AND metric:class-loading.unloaded",
+              "refId": "B",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Class Loading",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "Servers",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"host\"}",
+        "refresh": 1,
+        "regex": "",
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "Applications",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\" }",
+        "refresh": 1,
+        "regex": "",
+        "tagValuesQuery": "apps.$tag.*",
+        "tagsQuery": "name",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "Heap",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"metric\", \"query\": \"metric:memory-usage.heap.*\"}",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "NonHeap",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"metric\", \"query\": \"metric:memory-usage.non-heap.*\"}",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "TotalHeap",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"metric\", \"query\": \"metric:memory-usage.total.*\"}",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": null,
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "MemoryPool",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"metric\", \"query\": \"metric:memory-usage.pools.*\"}",
+        "refresh": 1,
+        "regex": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": false,
+  "schemaVersion": 12,
+  "version": 8,
+  "links": [],
+  "gnetId": null
+}
