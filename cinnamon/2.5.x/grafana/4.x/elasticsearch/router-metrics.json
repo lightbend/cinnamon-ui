@@ -41,7 +41,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "ESCINNAMON",
+        "datasource": null,
         "hide": 0,
         "includeAll": true,
         "label": null,
@@ -59,7 +59,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "ESCINNAMON",
+        "datasource": null,
         "hide": 0,
         "includeAll": true,
         "label": null,
@@ -77,7 +77,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "ESCINNAMON",
+        "datasource": null,
         "hide": 0,
         "includeAll": true,
         "label": null,
@@ -95,7 +95,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "ESCINNAMON",
+        "datasource": null,
         "hide": 0,
         "includeAll": true,
         "label": null,
@@ -113,7 +113,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "ESCINNAMON",
+        "datasource": null,
         "hide": 0,
         "includeAll": true,
         "label": null,
@@ -206,7 +206,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "ESCINNAMON",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -221,7 +221,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
@@ -335,7 +335,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "ESCINNAMON",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -350,7 +350,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,

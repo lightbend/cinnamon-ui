@@ -144,7 +144,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
@@ -361,7 +361,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
@@ -578,7 +578,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
@@ -733,7 +733,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
@@ -876,7 +876,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
@@ -1253,7 +1253,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
@@ -1396,7 +1396,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
@@ -1765,7 +1765,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
@@ -1906,7 +1906,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "connected",
           "percentage": false,
