@@ -1,7 +1,6 @@
 {
-  "id": 3,
-  "title": "Trace Spans",
-  "originalTitle": "Trace Spans",
+  "id": null,
+  "title": "Stopwatch Metrics",
   "tags": [],
   "style": "dark",
   "timezone": "browser",
@@ -15,7 +14,7 @@
       "height": "25px",
       "panels": [
         {
-          "content": "# Trace Spans",
+          "content": "# Stopwatch Metrics",
           "editable": true,
           "error": false,
           "id": 12,
@@ -77,12 +76,12 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.traces.$TraceIdentifiers.trace-time.$TimeMetric, 3, 5, 7, 9)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.stopwatches.$StopwatchIdentifiers.stopwatch-time.$TimeMetric, 3, 5, 8, 10)"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Trace Time: $TimeMetric",
+          "title": "Stopwatch Time: $TimeMetric",
           "tooltip": {
             "msResolution": true,
             "ordering": "alphabetical",
@@ -159,12 +158,12 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.traces.$TraceIdentifiers.completed-traces.$EventRate, 3, 5, 7, 9)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.metrics.stopwatches.$StopwatchIdentifiers.stopwatch-rate.$EventRate, 3, 5, 8, 10)"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Completed Traces: $EventRate",
+          "title": "Stopwatch Stops: $EventRate",
           "tooltip": {
             "msResolution": false,
             "ordering": "alphabetical",
@@ -178,7 +177,7 @@
           "yaxes": [
             {
               "format": "ops",
-              "label": "traces/second",
+              "label": "events/second",
               "logBase": 1,
               "max": null,
               "min": null,
@@ -234,12 +233,12 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.traces.$TraceIdentifiers.trace-time-limit.$EventRate, 3, 5, 7, 9)"
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Apps.events.stopwatches.$StopwatchIdentifiers.stopwatch-time-limit.$EventRate, 3, 5, 8, 10)"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Trace Time Limit Breaches: $EventRate",
+          "title": "Stopwatch Threshold Breaches: $EventRate",
           "tooltip": {
             "msResolution": false,
             "ordering": "alphabetical",
@@ -323,8 +322,7 @@
           }
         ],
         "query": "*.gauges.servers.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },
@@ -346,9 +344,8 @@
             "selected": true
           }
         ],
-        "query": "*.gauges.servers.*.apps.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "query": "*.gauges.servers.$Servers.apps.*",
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },
@@ -362,7 +359,7 @@
         "includeAll": true,
         "multi": true,
         "multiFormat": "glob",
-        "name": "TraceIdentifiers",
+        "name": "StopwatchIdentifiers",
         "options": [
           {
             "text": "All",
@@ -370,9 +367,8 @@
             "selected": true
           }
         ],
-        "query": "*.gauges.servers.*.apps.*.traces.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "query": "*.gauges.servers.$Servers.apps.$Apps.metrics.stopwatches.*",
+        "refresh": 1,
         "regex": "",
         "tags": [],
         "type": "query",
@@ -441,15 +437,15 @@
             "selected": false
           }
         ],
-        "query": "*.gauges.servers.*.apps.*.traces.*.trace-time.*",
-        "refresh": true,
+        "query": "*.gauges.servers.*.apps.*.metrics.stopwatches.*.stopwatch-time.*",
+        "refresh": 1,
         "type": "query"
       },
       {
         "allFormat": "glob",
         "current": {
-          "text": "All",
-          "value": "*"
+          "text": "min1_rate",
+          "value": "min1_rate"
         },
         "datasource": null,
         "includeAll": true,
@@ -483,7 +479,7 @@
           }
         ],
         "query": "mean_rate, min1_rate, min5_rate, min15_rate",
-        "refresh": true,
+        "refresh": 1,
         "type": "custom"
       }
     ]
@@ -491,6 +487,7 @@
   "annotations": {
     "list": []
   },
+  "refresh": false,
   "schemaVersion": 12,
   "version": 5,
   "links": []

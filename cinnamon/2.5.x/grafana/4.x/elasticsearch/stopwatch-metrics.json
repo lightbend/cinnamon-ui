@@ -1,6 +1,6 @@
 {
   "id": null,
-  "title": "Trace Spans",
+  "title": "Stopwatch Metrics",
   "tags": [],
   "style": "dark",
   "timezone": "browser",
@@ -92,7 +92,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "trace-span",
+                  "field": "stopwatch",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -113,12 +113,12 @@
                 }
               ],
               "timeField": "@timestamp",
-              "query": "metric:\"traces.trace-time\" AND host:$Servers AND application:$Applications AND trace-span:$TraceIdentifiers"
+              "query": "metric:\"stopwatches.stopwatch-time\" AND host:$Servers AND application:$Applications AND stopwatch:$StopwatchIdentifiers"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Trace Time: $TimeMetric",
+          "title": "Stopwatch Time: $TimeMetric",
           "tooltip": {
             "msResolution": true,
             "ordering": "alphabetical",
@@ -233,7 +233,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "trace-span",
+                  "field": "stopwatch",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -254,12 +254,12 @@
                 }
               ],
               "timeField": "@timestamp",
-              "query": "metric:\"traces.completed-traces\" AND host:$Servers AND application:$Applications AND trace-span:$TraceIdentifiers"
+              "query": "metric:\"stopwatches.stopwatch-rate\" AND host:$Servers AND application:$Applications AND stopwatch:$StopwatchIdentifiers"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Completed Traces: $EventRate",
+          "title": "Stopwatch Stops: $EventRate",
           "tooltip": {
             "msResolution": false,
             "ordering": "alphabetical",
@@ -274,7 +274,7 @@
           "yaxes": [
             {
               "format": "ops",
-              "label": "traces/second",
+              "label": "events/second",
               "logBase": 1,
               "max": null,
               "min": null,
@@ -368,7 +368,7 @@
                 },
                 {
                   "type": "terms",
-                  "field": "trace-span",
+                  "field": "stopwatch",
                   "id": "5",
                   "fake": true,
                   "settings": {
@@ -389,12 +389,12 @@
                 }
               ],
               "timeField": "@timestamp",
-              "query": "metric:\"traces.trace-time-limit\" AND host:$Servers AND application:$Applications AND trace-span:$TraceIdentifiers"
+              "query": "metric:\"stopwatches.stopwatch-time-limit\" AND host:$Servers AND application:$Applications AND stopwatch:$StopwatchIdentifiers"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Trace Time Limit Breaches: $EventRate",
+          "title": "Stopwatch Threshold Breaches: $EventRate",
           "tooltip": {
             "msResolution": false,
             "ordering": "alphabetical",
@@ -499,9 +499,9 @@
         "includeAll": true,
         "multi": true,
         "multiFormat": "glob",
-        "name": "TraceIdentifiers",
+        "name": "StopwatchIdentifiers",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\": \"trace-span\"}",
+        "query": "{\"find\": \"terms\", \"field\": \"stopwatch\"}",
         "refresh": 1,
         "refresh_on_load": false,
         "regex": "",
