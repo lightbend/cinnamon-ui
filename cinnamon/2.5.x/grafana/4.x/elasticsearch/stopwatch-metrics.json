@@ -287,8 +287,7 @@
               "min": null,
               "show": true
             }
-          ],
-          "interval": ""
+          ]
         },
         {
           "aliasColors": {},
