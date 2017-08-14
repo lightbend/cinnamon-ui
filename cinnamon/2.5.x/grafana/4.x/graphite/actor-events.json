@@ -723,8 +723,7 @@
           }
         ],
         "query": "*.gauges.servers.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },
@@ -747,8 +746,7 @@
           }
         ],
         "query": "*.gauges.servers.*.apps.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },
@@ -771,8 +769,7 @@
           }
         ],
         "query": "*.gauges.servers.*.apps.*.events.akka.systems.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "tags": [],
         "type": "query",
@@ -797,8 +794,7 @@
           }
         ],
         "query": "*.gauges.servers.*.apps.*.events.akka.systems.*.dispatchers.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "tags": [],
         "type": "query",
@@ -823,8 +819,7 @@
           }
         ],
         "query": "*.gauges.servers.*.apps.*.events.akka.systems.*.dispatchers.*.actors.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "tags": [],
         "type": "query",
@@ -869,8 +864,7 @@
           }
         ],
         "query": "mean_rate, min1_rate, min5_rate, min15_rate",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "tagValuesQuery": "mean_rate",
         "tags": [],

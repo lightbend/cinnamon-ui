@@ -420,7 +420,7 @@
           }
         ],
         "query": "stats.gauges.servers.*",
-        "refresh": true,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },
@@ -443,7 +443,7 @@
           }
         ],
         "query": "stats.gauges.servers.$Servers.apps.*",
-        "refresh": true,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },
@@ -466,7 +466,7 @@
           }
         ],
         "query": "stats.gauges.servers.$Servers.apps.$Apps.metrics.lagom.circuit-breakers.*",
-        "refresh": true,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },
@@ -534,7 +534,7 @@
           }
         ],
         "query": "stats.gauges.servers.*.apps.*.metrics.lagom.circuit-breakers.*.latency.*",
-        "refresh": true,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },

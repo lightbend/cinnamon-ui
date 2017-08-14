@@ -668,7 +668,6 @@
         ],
         "query": "*.gauges.servers.*",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "",
         "type": "query"
       },
@@ -693,7 +692,6 @@
         ],
         "query": "*.gauges.servers.*.apps.*",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "",
         "type": "query"
       },
@@ -719,7 +717,6 @@
         ],
         "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "",
         "tags": [],
         "type": "query",
@@ -747,7 +744,6 @@
         ],
         "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*.dispatchers.*",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "",
         "tags": [],
         "type": "query",

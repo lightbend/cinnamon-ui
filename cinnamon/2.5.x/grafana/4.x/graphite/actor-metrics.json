@@ -559,8 +559,7 @@
           }
         ],
         "query": "*.gauges.servers.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },
@@ -583,8 +582,7 @@
           }
         ],
         "query": "*.gauges.servers.*.apps.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       },
@@ -608,8 +606,7 @@
           }
         ],
         "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "tags": [],
         "type": "query",
@@ -635,8 +632,7 @@
           }
         ],
         "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*.dispatchers.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "tags": [],
         "type": "query",
@@ -661,8 +657,7 @@
           }
         ],
         "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*.dispatchers.*.actors.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "tags": [],
         "type": "query",
@@ -732,8 +727,7 @@
           }
         ],
         "query": "*.gauges.servers.*.apps.*.metrics.akka.systems.*.dispatchers.*.actors.*.mailbox-size.*",
-        "refresh": true,
-        "refresh_on_load": false,
+        "refresh": 1,
         "regex": "",
         "type": "query"
       }

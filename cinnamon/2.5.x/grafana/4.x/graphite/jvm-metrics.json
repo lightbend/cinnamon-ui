@@ -636,7 +636,6 @@
         ],
         "query": "*.gauges.servers.*",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "",
         "type": "query"
       },
@@ -663,7 +662,6 @@
         ],
         "query": "*.gauges.servers.$Servers.apps.*",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "",
         "type": "query"
       },
@@ -713,7 +711,6 @@
         ],
         "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.heap_*",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "/heap_(.*)/",
         "type": "query"
       },
@@ -768,7 +765,6 @@
         ],
         "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.pools_*",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "/pools_([\\w-]*)_.*/",
         "type": "query"
       }
