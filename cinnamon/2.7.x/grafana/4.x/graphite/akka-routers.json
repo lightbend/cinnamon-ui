@@ -1,0 +1,406 @@
+{
+  "id": null,
+  "title": "Akka Routers",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": true,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Graphite",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 1,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.routers.$Routers.router-routed-messages.min1_rate, 3, 5, 9, 13, 15)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Routed messages: 1min rate",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": "messages/second",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Graphite",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.routers.$Routers.router-processing-time.$MetricValue, 3, 5, 9, 13, 15)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Router processing time: $MetricType",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+},
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+},
+  "templating": {
+    "list": [
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "Servers",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.*",
+          "refresh": 1,
+          "regex": "",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "Applications",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.$Servers.apps.*",
+          "refresh": 1,
+          "regex": "",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "ActorSystems",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.$Servers.apps.$Applications.metrics.akka.systems.*",
+          "refresh": 1,
+          "regex": "",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "Dispatchers",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.$Servers.apps.$Applications.metrics.akka.systems.$ActorSystems.dispatchers.*",
+          "refresh": 1,
+          "regex": "",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "Routers",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.$Servers.apps.$Applications.metrics.akka.systems.$ActorSystems.dispatchers.$Dispatchers.routers.*",
+          "refresh": 1,
+          "regex": "",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+        {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "max",
+            "value": "max"
+          },
+          "datasource": null,
+          "includeAll": false,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "MetricType",
+          "options": [
+            {
+              "text": "max",
+              "value": "max",
+              "selected": true
+            },
+            {
+              "text": "mean",
+              "value": "mean",
+              "selected": false
+            },
+            {
+              "text": "median",
+              "value": "median",
+              "selected": false
+            },
+            {
+              "text": "min",
+              "value": "min",
+              "selected": false
+            },
+            {
+              "text": "p75",
+              "value": "p75",
+              "selected": false
+            },
+            {
+              "text": "p95",
+              "value": "p95",
+              "selected": false
+            },
+            {
+              "text": "p98",
+              "value": "p98",
+              "selected": false
+            },
+            {
+              "text": "p99",
+              "value": "p99",
+              "selected": false
+            },
+            {
+              "text": "p999",
+              "value": "p999",
+              "selected": false
+            },
+            {
+              "text": "stddev",
+              "value": "stddev",
+              "selected": false
+            }
+          ],
+          "query": "",
+          "refresh": 1,
+          "regex": "",
+          "type": "custom"
+        }
+    ]
+  },
+  "annotations": {
+  "list": []
+  },
+  "refresh": false,
+  "schemaVersion": 12,
+  "version": 3,
+  "links": [],
+  "gnetId": null
+}
