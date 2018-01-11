@@ -1,0 +1,811 @@
+{
+  "id": null,
+  "title": "JVM Metrics",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": true,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Graphite",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 7,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.heap_$HeapTypes, 3, 5, 9)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Heap",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Graphite",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 6,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.non-heap_$NonHeapTypes, 3, 5, 9)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Non Heap",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Graphite",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 4,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.total_$TotalHeapTypes, 3, 5, 9)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total Heap",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Graphite",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-MarkSweep_time, 3, 5, 9)",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-Scavenge_time, 3, 5, 9)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "GC Time",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ms",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Graphite",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 3,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-MarkSweep_count, 3, 5, 9)",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.garbage-collection.PS-Scavenge_count, 3, 5, 9)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "GC Count",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Graphite",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 5,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.pools_$MemoryPools\\_usage, 3, 5, 9)",
+              "textEditor": false
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Memory Pools",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Graphite",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 1,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.class-loading.loaded, 3, 5, 9)",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(stats.gauges.servers.$Servers.apps.$Applications.metrics.jvm.class-loading.unloaded, 3, 5, 9)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Class Loading",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+},
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+},
+  "templating": {
+    "list": [
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "Servers",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.*",
+          "refresh": 1,
+          "regex": "",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "Applications",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.$Servers.apps.*",
+          "refresh": 1,
+          "regex": "",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "HeapTypes",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.heap_*",
+          "refresh": 1,
+          "regex": "/heap_(.*)/",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "NonHeapTypes",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.non-heap_*",
+          "refresh": 1,
+          "regex": "/heap_(.*)/",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": "Cinnamon Graphite",
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "TotalHeapTypes",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            }
+          ],
+          "query": "*.gauges.servers.$Servers.apps.$Applications.metrics.jvm.memory-usage.heap_*",
+          "refresh": 1,
+          "regex": "/heap_(.*)/",
+          "tags": [],
+          "type": "query",
+          "useTags": true
+      },
+      {
+          "allFormat": "wildcard",
+          "current": {
+            "text": "All",
+            "value": "*"
+          },
+          "datasource": null,
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "multiFormat": "glob",
+          "name": "MemoryPools",
+          "options": [
+            {
+              "text": "All",
+              "value": "*",
+              "selected": true
+            },
+            {
+              "text": "Code-Cache",
+              "value": "Code-Cache",
+              "selected": false
+            },
+            {
+              "text": "Compressed-Class-Space",
+              "value": "Compressed-Class-Space",
+              "selected": false
+            },
+            {
+              "text": "Metaspace",
+              "value": "Metaspace",
+              "selected": false
+            },
+            {
+              "text": "PS-Eden-Space",
+              "value": "PS-Eden-Space",
+              "selected": false
+            },
+            {
+              "text": "PS-Old-Gen",
+              "value": "PS-Old-Gen",
+              "selected": false
+            },
+            {
+              "text": "PS-Survivor-Space",
+              "value": "PS-Survivor-Space",
+              "selected": false
+            }
+          ],
+          "query": "*.gauges.servers.$Servers.apps.*.metrics.jvm.memory-usage.pools_*",
+          "refresh": 1,
+          "regex": "/pools_([\\w-]*)_.*/",
+          "type": "query"
+      }
+    ]
+  },
+  "annotations": {
+  "list": []
+  },
+  "refresh": false,
+  "schemaVersion": 12,
+  "version": 3,
+  "links": [],
+  "gnetId": null
+}
