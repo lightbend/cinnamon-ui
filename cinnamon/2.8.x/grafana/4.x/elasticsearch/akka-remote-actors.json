@@ -1,0 +1,1009 @@
+{
+  "id": null,
+  "title": "Remote Actors",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": true,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 1,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                  "field": "m1_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+              }],
+              "query": "metric:\"actors.remote-sent-messages\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Remote Messages Sent: 1 min",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": "messages/second",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                  "field": "m1_rate",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+              }],
+              "query": "metric:\"actors.remote-received-messages\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Remote Messages Received: 1 min",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": "messages/second",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 5,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                  "field": "$MetricType",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+              }],
+              "query": "metric:\"actors.remote-sent-message-size\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Remote Sent Message Size: $MetricType",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 3,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                  "field": "$MetricType",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+              }],
+              "query": "metric:\"actors.remote-received-message-size\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Remote Received Message Size: $MetricType",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 6,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                  "field": "$MetricType",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+              }],
+              "query": "metric:\"actors.remote-serialization-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Remote Serialization Time: $MetricType",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ns",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 4,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                  "field": "$MetricType",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "max"
+              }],
+              "query": "metric:\"actors.remote-deserialization-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$RemoteActors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Remote Deserialization Time: $MetricType",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ns",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+},
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+},
+  "templating": {
+    "list": [
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "Servers",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"host\"}",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      },
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "Applications",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\" }",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      },
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "ActorSystems",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"actor-system\", \"query\":\"application:$Applications AND host:$Servers\"}",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      },
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "Dispatchers",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"dispatcher\", \"query\":\"actor-system:$ActorSystems AND application:$Applications AND host:$Servers\"}",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      },
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "RemoteActors",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"actor\", \"query\":\"dispatcher:$Dispatchers AND actor-system:$ActorSystems AND application:$Applications AND host:$Servers AND name:*.remote-* AND max:>0\"}",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      },
+      {
+          "current": {
+            "tags": [],
+            "text": "max",
+            "value": "max"
+          },
+          "datasource": null,
+          "hide": 0,
+          "includeAll": false,
+          "multi": false,
+          "name": "MetricType",
+          "options": [
+            {
+              "selected": true,
+              "text": "max",
+              "value": "max"
+            },
+            {
+              "selected": false,
+              "text": "mean",
+              "value": "mean"
+            },
+            {
+              "selected": false,
+              "text": "min",
+              "value": "min"
+            },
+            {
+              "selected": false,
+              "text": "p50",
+              "value": "p50"
+            },
+            {
+              "selected": false,
+              "text": "p75",
+              "value": "p75"
+            },
+            {
+              "selected": false,
+              "text": "p95",
+              "value": "p95"
+            },
+            {
+              "selected": false,
+              "text": "p98",
+              "value": "p98"
+            },
+            {
+              "selected": false,
+              "text": "p99",
+              "value": "p99"
+            },
+            {
+              "selected": false,
+              "text": "p999",
+              "value": "p999"
+            }
+          ],
+          "query": "max, mean, min, p50, p75, p95, p98, p99, p999",
+          "refresh": 0,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "custom",
+          "useTags": false
+      }
+    ]
+  },
+  "annotations": {
+  "list": []
+  },
+  "refresh": false,
+  "schemaVersion": 12,
+  "version": 3,
+  "links": [],
+  "gnetId": null
+}
