@@ -1,0 +1,1454 @@
+{
+  "id": null,
+  "title": "Actor Persistence",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": true,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 1,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-max",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "host",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "application",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                    "field": "@timestamp",
+                    "id": "2",
+                    "settings": {
+                        "interval": "auto",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                    },
+                    "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "max",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"metrics.recovery-permitter-used-permits-value\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-p99",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "host",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "application",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                    "field": "@timestamp",
+                    "id": "2",
+                    "settings": {
+                        "interval": "auto",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                    },
+                    "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "p99",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"metrics.recovery-permitter-used-permits-value\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-p50",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "host",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "application",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                    "field": "@timestamp",
+                    "id": "2",
+                    "settings": {
+                        "interval": "auto",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                    },
+                    "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "p50",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"metrics.recovery-permitter-used-permits-value\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-min",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "host",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "application",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                    "field": "@timestamp",
+                    "id": "2",
+                    "settings": {
+                        "interval": "auto",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                    },
+                    "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "min",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"metrics.recovery-permitter-used-permits-value\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-max-limit",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "host",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "application",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                    "field": "@timestamp",
+                    "id": "2",
+                    "settings": {
+                        "interval": "auto",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                    },
+                    "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "value",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"metrics.recovery-permitter-max-permits-value\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Used permits",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-max",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "host",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "application",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                    "field": "@timestamp",
+                    "id": "2",
+                    "settings": {
+                        "interval": "auto",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                    },
+                    "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "max",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"metrics.recovery-permitter-pending-actors-value\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-p99",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "host",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "application",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                    "field": "@timestamp",
+                    "id": "2",
+                    "settings": {
+                        "interval": "auto",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                    },
+                    "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "p99",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"metrics.recovery-permitter-pending-actors-value\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-p50",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "host",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "application",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                    "field": "@timestamp",
+                    "id": "2",
+                    "settings": {
+                        "interval": "auto",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                    },
+                    "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "p50",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"metrics.recovery-permitter-pending-actors-value\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{host}}-{{application}}-{{actor-system}}-min",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "host",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "application",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                    "field": "@timestamp",
+                    "id": "2",
+                    "settings": {
+                        "interval": "auto",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                    },
+                    "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "min",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"metrics.recovery-permitter-pending-actors-value\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Pending permits",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "",
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 3,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}-recovery-time-max",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "max",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"actors.persistence-recovery-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}-recovery-time-p99",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "p99",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"actors.persistence-recovery-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}-recovery-time-p50",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "p50",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"actors.persistence-recovery-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}-recovery-time-min",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "min",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"actors.persistence-recovery-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Recovery time $Actors",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ns",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Cinnamon Elasticsearch",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 4,
+          "interval": "10s",
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}-recovery-time-max",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "max",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"actors.persistence-recovery-failure-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}-recovery-time-p99",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "p99",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"actors.persistence-recovery-failure-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}-recovery-time-p50",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "p50",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"actors.persistence-recovery-failure-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            },
+            {
+              "alias": "{{actor-system}}-{{dispatcher}}-{{actor}}-recovery-time-min",
+              "bucketAggs": [
+                  {
+                      "fake": true,
+                      "field": "actor-system",
+                      "id": "3",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "dispatcher",
+                      "id": "4",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "fake": true,
+                      "field": "actor",
+                      "id": "5",
+                      "settings": {
+                          "order": "asc",
+                          "orderBy": "_term",
+                          "size": "10"
+                      },
+                      "type": "terms"
+                  },
+                  {
+                      "field": "@timestamp",
+                      "id": "2",
+                      "settings": {
+                          "interval": "auto",
+                          "min_doc_count": 0,
+                          "trimEdges": 0
+                      },
+                      "type": "date_histogram"
+                  }
+              ],
+              "dsType": "elasticsearch",
+              "metrics": [{
+                "field": "min",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "max"
+              }],
+              "query": "metric:\"actors.persistence-recovery-failure-time\" AND host:$Servers AND application:$Applications AND actor-system:$ActorSystems AND dispatcher:$Dispatchers AND actor:$Actors",
+              "refId": "A",
+              "target": "",
+              "timeField": "@timestamp"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Recovery failure time $Actors",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "value_type": "cumulative",
+            "sort": 0
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ns",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": "Actors"
+    }
+  ],
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+},
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+},
+  "templating": {
+    "list": [
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "Servers",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"host\"}",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      },
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "Applications",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"application\", \"query\":\"host:$Servers\" }",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      },
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "ActorSystems",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"actor-system\", \"query\":\"application:$Applications AND host:$Servers\"}",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      },
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "Dispatchers",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"dispatcher\", \"query\":\"actor-system:$ActorSystems AND application:$Applications AND host:$Servers\"}",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      },
+      {
+          "current": {},
+          "datasource": "Cinnamon Elasticsearch",
+          "hide": 0,
+          "includeAll": true,
+          "multi": true,
+          "name": "Actors",
+          "options": [],
+          "query": "{\"find\": \"terms\", \"field\": \"actor\", \"query\":\"dispatcher:$Dispatchers AND actor-system:$ActorSystems AND application:$Applications AND host:$Servers\" }",
+          "refresh": 1,
+          "regex": "",
+          "tagValuesQuery": "apps.$tag.*",
+          "tagsQuery": "name",
+          "type": "query",
+          "useTags": false
+      }
+    ]
+  },
+  "annotations": {
+  "list": []
+  },
+  "refresh": false,
+  "schemaVersion": 12,
+  "version": 3,
+  "links": [],
+  "gnetId": null
+}
